@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller('LearnMoreController', function($scope, supersonic) {
+  .controller('newCtrl', function($scope, supersonic) {
 
     $scope.navbarTitle = "Learn More";
     $scope.x = "Hello";
@@ -8,6 +8,8 @@ angular
     // $scope.hello = 'yes';
     $scope.hello = function() {
     	supersonic.logger.log('running hello function');
-    	supersonic.ui.dialog.alert('Hello');
+    	supersonic.ui.dialog.alert('Hello'); 
     };
+
+
   });

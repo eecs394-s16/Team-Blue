@@ -1,0 +1,43 @@
+<style type="text/css">
+  .upvote {
+
+  }
+
+
+</style>
+
+<div ng-controller="IndexController">
+  <super-navbar>
+    <super-navbar-title>
+      Idea Index
+    </super-navbar-title>
+  </super-navbar>
+
+  <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner">
+    <ul class="list" ng-hide="ideas.length == 0">
+
+      <div data-params-id="{{ idea.id }}" ng-repeat="idea in ideas">
+        <super-navigate location="idea#show">
+          <li class="item item-icon-right ideaItem">
+            <p class="title">{{idea.title}}</p>
+            <p class="votes">{{ideas.ratings[$index]}}</p>
+            
+          </li>
+        </super-navigate>
+        <button class="button button-positive upvote" ng-click="upvote(idea.id)">Upvote</button>
+        <button class="button button-positive downvote" ng-click="downvote(idea.id)">Downvote</button>
+      </div>
+    </ul>
+
+    <h4 ng-show="ideas.length == 0" class="assertive padding">
+      No ideas found. Create one?
+    </h4>
+
+    <super-modal-show location="idea#new">
+      <button class="button button-full button-positive">
+        Create a new idea
+      </button>
+    </super-modal-show>
+  </div>
+</div>
