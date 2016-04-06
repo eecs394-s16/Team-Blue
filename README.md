@@ -1,7 +1,7 @@
 #CrowdStorm
 ####By 394 Team Blue
 
-####Develop Android Web App through Suoersonic
+####Develop Android Web App through Supersonic
 
 ##Installation Instruction:
 
