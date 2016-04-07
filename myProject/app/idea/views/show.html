@@ -10,17 +10,28 @@
     <div ng-hide="showSpinner">
       <h2 ng-bind="idea['title']"></h2>
       <p>{{idea.desc}}</p>
-      
+
       <p>{{idea.id}}</p>
+
+      <div class="container" >
+        <div class="comments row">
+          <div class="col-sm-2">
+            <img class="comment_user_img"src="https://bholanauthj.files.wordpress.com/2015/06/business-intelligence-icon.png"> 
+         </div>
+         <div class="col-sm-10">
+           <input type="text" id="comment-input">
+           <button id="submit" ng-click="addComment()">Submit comment</button>
+         </div>
+       </div>
+      </div>
+
       <div class="comments">
         <div class="comment" ng-repeat="comment in comments track by $index">
           <p>{{comments[$index]}}</p>
         </div>
 
-
       </div>
 
-      <button id="com" ng-click="addComment()">weweifojweoifjew</button>
       <super-modal-show location="idea#edit?id={{ idea.id }}">
         <button class="button button-block button-positive">
           Edit

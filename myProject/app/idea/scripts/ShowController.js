@@ -57,8 +57,8 @@ angular
     }
 
     $scope.addComment = function() {
-      var texty = (document.getElementById('com').innerHTML).toString();
-      var iid = $scope.idea.id
+      var texty = (document.getElementById('comment-input').value).toString();
+      var iid = $scope.idea.id;
       var commenty = {
         idea_id: iid,
         text: texty

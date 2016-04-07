@@ -45,3 +45,24 @@ background-color: #f5f5f5 ;
 text-align: center;
 padding-left: 9%;
 }
+
+.comment_user_img{
+	max-width: 130%;
+}
+.comments{
+	background-color: #f5f5f5 ;
+}
+#comment-input{
+	width: 155%;
+	margin-left: 0;
+}
+.row{
+	margin:0;
+	/*padding: 0;*/
+}
+
+#submit {
+	float:right;
+	margin-right: -50%;
+	margin-top: 10px;
+}
