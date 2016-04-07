@@ -1,4 +1,6 @@
-
+.container{
+	padding: 0;
+}
 .ideaItem {
 color: black;
 text-align: left;
@@ -20,15 +22,20 @@ color:red;
 }
 
 #user_img{
-	max-width:10px !important;
-	max-height:10px !important;
-
+	max-width:180%;
+	max-height:180%;
+}
+.user_name{
+	color: #3b5998 !important;
+}
+.time{
+	color:#9197a3 !important;
+	font:15px  !important;
+}
+.col-sm-2{
+	width: 17%;
 }
 .feed, .feed_1{
-
-/*margin-left: 0 !important;
-margin-right: 0 !important;
-*/
 padding:5px !important;
 box-shadow: none;
 background-color: #f5f5f5 ;
