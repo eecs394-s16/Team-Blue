@@ -1,9 +1,9 @@
-<div class="padding">
+<div class="padding" ng-controller="menuController">
 
   <super-navbar>
-    <super-navbar-title>
-      Welcome to Supersonic!
-    </super-navbar-title>
+	<super-navbar-button id="menuButton" side="left" onclick="supersonic.ui.drawers.open()">&#9776;</super-navbar-button>
+    <super-navbar-title>CrowdStorm</super-navbar-title>
+	<super-navbar-button id="createForm" side="right">&#10010</super-navbar-button>
   </super-navbar>
 
   <p>Awesome! This file is located at <strong>app/example/views/getting-started.html</strong> &mdash; open it, change some text and save the file. The changes are updated to all connected devices. Cool, huh?</p>
