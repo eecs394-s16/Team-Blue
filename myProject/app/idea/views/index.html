@@ -8,9 +8,9 @@
 
 <div ng-controller="IndexController">
   <super-navbar>
-    <super-navbar-title>
-      Idea Index
-    </super-navbar-title>
+  <super-navbar-button id="menuButton" side="left" onclick="supersonic.ui.drawers.open()">&#9776;</super-navbar-button>
+    <super-navbar-title>CrowdStorm</super-navbar-title>
+  <super-navbar-button id="createForm" side="right" ng-click="newIdea()">&#10010;</super-navbar-button>
   </super-navbar>
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>

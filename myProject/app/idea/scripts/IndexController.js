@@ -67,6 +67,10 @@ angular
         });
       }
     };
-
+	
+	$scope.newIdea = function() {
+		var view = new supersonic.ui.View("idea#new");
+		supersonic.ui.layers.push(view);
+    };
 
   });

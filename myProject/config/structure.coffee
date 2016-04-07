@@ -27,7 +27,7 @@ module.exports =
   # ]
 
   rootView:
-    location: "example#getting-started"
+    location: "idea#index"
 
   preloads: [
     {
