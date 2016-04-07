@@ -1,0 +1,17 @@
+#reddy {
+	color:red;
+}
+
+.ideaItem {
+color: black;
+text-align: left;
+}
+
+.ideaItem .title {
+color: black;
+font-size: 1.5em;
+}
+
+.ideaItem .votes {
+color:red;
+}

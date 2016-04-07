@@ -10,6 +10,11 @@ module.exports =
       location: "example#getting-started" # Supersonic module#view type navigation
     }
     {
+      title: "Ideas"
+      id: "ideas"
+      location: "idea#index" # Supersonic module#view type navigation
+    }
+    {
       title: "Settings"
       id: "settings"
       location: "example#settings"

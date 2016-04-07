@@ -1,7 +1,11 @@
 #CrowdStorm
 ####By 394 Team Blue
 
+<<<<<<< HEAD
 ####Developing an Android Web App through Supersonic
+=======
+####Develop Android Web App through Supersonic
+>>>>>>> origin/master
 
 ##Installation Instructions:
 
