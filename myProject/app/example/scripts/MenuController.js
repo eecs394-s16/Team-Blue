@@ -12,4 +12,8 @@ angular
     	supersonic.logger.log('running hello function');
     	supersonic.ui.dialog.alert('Hello'); 
     };
+	$scope.newIdea = function() {
+		var view = new supersonic.ui.View("idea#new");
+		supersonic.ui.layers.push(view);
+    };
   });

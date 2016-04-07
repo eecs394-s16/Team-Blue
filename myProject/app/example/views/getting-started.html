@@ -1,8 +1,8 @@
-<div class="padding" ng-controller="menuController">
+<div class="padding" ng-controller="MenuController">
   <super-navbar>
   <super-navbar-button id="menuButton" side="left" onclick="supersonic.ui.drawers.open()">&#9776;</super-navbar-button>
     <super-navbar-title>CrowdStorm</super-navbar-title>
-  <super-navbar-button id="createForm" side="right">&#10010</super-navbar-button> 
+  <super-navbar-button id="createForm" side="right" ng-click="newIdea()">&#10010;</super-navbar-button>
   </super-navbar>
 
 

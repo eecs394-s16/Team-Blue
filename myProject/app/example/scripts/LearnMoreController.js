@@ -4,8 +4,6 @@ angular
 
     $scope.navbarTitle = "Learn More";
 
-	supersonic.ui.tabs.hide()
-
     $scope.x = "Hello";
     $scope.wth = 'I am a variable';
     // $scope.hello = 'yes';
