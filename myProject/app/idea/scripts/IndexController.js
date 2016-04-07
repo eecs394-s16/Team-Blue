@@ -3,6 +3,8 @@ angular
   .controller("IndexController", function ($scope, Idea, supersonic) {
     $scope.ideas = null;
     $scope.showSpinner = true;
+    $scope.liked = false;
+    $scope.stormed = false;
 
     Idea.all().whenChanged( function (ideas) {
         $scope.$apply( function () {
@@ -20,23 +22,51 @@ angular
         });
     });
 
-
-    $scope.upvote = function (id) {
+    $scope.like = function (id) {
       // supersonic.ui.dialog.alert('Hello');
-      Idea.find(id).then(function(idea) {
-        idea.upvotes++;
-        idea.save();
-      });
-    };
-
-    $scope.downvote = function (id) {
-      // supersonic.ui.dialog.alert('Hello');
-      Idea.find(id).then(function(idea) {
-        idea.downvotes++;
-        idea.save().then( function() {
-          console.log("idea saved");
+      // console.log($scope.liked);
+      if (!$scope.liked) {
+        Idea.find(id).then(function(idea) {
+          idea.likes+=1;
+          idea.save();
+          $scope.liked = true;
+          // console.log($scope.liked);
+          $scope.apply();
         });
-      });
+      }
+      else {
+        Idea.find(id).then(function(idea) {
+          idea.likes-=1;
+          idea.save();
+          $scope.liked = false;
+          // console.log($scope.liked);
+          $scope.apply();
+        });
+      }
     };
+
+    $scope.storm = function (id) {
+      // supersonic.ui.dialog.alert('Hello');
+      // console.log($scope.liked);
+      if (!$scope.stormed) {
+        Idea.find(id).then(function(idea) {
+          idea.storms+=1;
+          idea.save();
+          $scope.stormed = true;
+          // console.log($scope.liked);
+          $scope.apply();
+        });
+      }
+      else {
+        Idea.find(id).then(function(idea) {
+          idea.storms-=1;
+          idea.save();
+          $scope.stormed = false;
+          // console.log($scope.liked);
+          $scope.apply();
+        });
+      }
+    };
+
 
   });

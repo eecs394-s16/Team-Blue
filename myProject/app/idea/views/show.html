@@ -1,7 +1,7 @@
 <div ng-controller="ShowController">
   <super-navbar>
     <super-navbar-title>
-      Show
+      CrowdStorm
     </super-navbar-title>
   </super-navbar>
 
@@ -9,15 +9,18 @@
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
     <div ng-hide="showSpinner">
       <h2 ng-bind="idea['title']"></h2>
+      <p>{{idea.desc}}</p>
       
-      
-      
-       <p>upvotes: <span ng-bind="idea['upvotes']"></span></p> 
-      
-       <p>downvotes: <span ng-bind="idea['downvotes']"></span></p> 
-      
+      <p>{{idea.id}}</p>
+      <div class="comments">
+        <div class="comment" ng-repeat="comment in comments track by $index">
+          <p>{{comments[$index]}}</p>
+        </div>
 
 
+      </div>
+
+      <button id="com" ng-click="addComment()">weweifojweoifjew</button>
       <super-modal-show location="idea#edit?id={{ idea.id }}">
         <button class="button button-block button-positive">
           Edit
