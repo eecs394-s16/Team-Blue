@@ -69,8 +69,11 @@ angular
     };
 	
 	$scope.newIdea = function() {
-		var view = new supersonic.ui.View("idea#new");
-		supersonic.ui.layers.push(view);
+		var modalView = new supersonic.ui.View("idea#new");
+		var options = {
+		animate: true
+		}
+		supersonic.ui.modal.show(modalView, options);
     };
 
   });

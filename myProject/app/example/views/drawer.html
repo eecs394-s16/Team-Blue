@@ -5,7 +5,7 @@
 </script>
 <ul class="list">
 	<li class="item" onclick="supersonic.ui.drawers.close();supersonic.ui.layers.popAll()">Home</li>
-  <super-navigate location="idea#index">
-	<li class="item" onclick="supersonic.ui.drawers.close()">Ideas</li>
-  </super-navigate>
+  <super-modal-show location="idea#new">
+	<li class="item" onclick="supersonic.ui.drawers.close()">Create</li>
+  </super-modal-show>
 </ul>
