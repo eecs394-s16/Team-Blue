@@ -1,13 +1,38 @@
 <div class="padding" ng-controller="menuController">
   <super-navbar>
-	<super-navbar-button id="menuButton" side="left" onclick="supersonic.ui.drawers.open()">&#9776;</super-navbar-button>
+  <super-navbar-button id="menuButton" side="left" onclick="supersonic.ui.drawers.open()">&#9776;</super-navbar-button>
     <super-navbar-title>CrowdStorm</super-navbar-title>
-	<super-navbar-button id="createForm" side="right">&#10010</super-navbar-button> 
+  <super-navbar-button id="createForm" side="right">&#10010</super-navbar-button> 
   </super-navbar>
 
-  <p>Awesome! This file is located at <strong>app/example/views/getting-started.html</strong> &mdash; open it, change some text and save the file. The changes are updated to all connected devices. Cool, huh?</p>
-  <h1 ng-click="hello()">{{x}}</h1>
-  <p>Below, you can see our multi-page navigation in action. Tap on a button to move to a new view.</p>
+
+  <div class="list card feed">
+  <div class="item item-avatar feed_1">
+    <div class="container">
+      <div class="row user_info">
+        <div class="col-sm-2">
+           <img id = "user_img "src=""> 
+           <!-- user img will retrieve from database, show default image if the user didn't upload -->
+        </div>
+        <div class="col-sm-10" >
+          <p class="user_name">Marty McFly</p>
+          <p class="time">12:00 PM</p> 
+        </div>
+      </div> <!-- .user-info .row  -->
+      </div>
+       <p id="idea_title"> Some text about the main idea of the pitch.
+       </p>
+    </div>
+    <!-- <div class="item item-body"> -->
+      <div class="comment row">
+        <a href="#" class="subdued col-sm-3">1 Like</a>
+        <a href="#" class="subdued col-sm-3">5 Comments</a>
+        <a href="#" class="subdued col-sm-3">1 Join</a>
+        <a href="#" class="subdued col-sm-3">5 Share</a>
+      </div>
+    <!-- </div>
+   -->
+</div>
 
   <super-navigate view-id="using-the-scanner">
     <button class="button button-block button-positive icon-left super-wand">Using the AppGyver Scanner</button>
