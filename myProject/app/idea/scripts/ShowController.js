@@ -65,7 +65,9 @@ angular
       }
       var comment = new Comments(commenty);
       comment.save();
-      getComments(Comments);
+      $scope.$apply(function() {
+        $scope.comments.push(texty);
+      });
     }
     
   });
