@@ -8,5 +8,7 @@
 	<li class="item" onclick="supersonic.ui.drawers.close();
 		supersonic.ui.navigationBar.update({overrideBackButton: true})">Home</li>
   </super-navigate>
-  <li class="item" onclick="supersonic.ui.drawers.close()">My Profile</li>
+  <super-navigate location="idea#index">
+	<li class="item" onclick="supersonic.ui.drawers.close()">Ideas</li>
+  </super-navigate>
 </ul>
