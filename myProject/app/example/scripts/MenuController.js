@@ -1,9 +1,10 @@
 angular
   .module('example')
   .controller('MenuController', function($scope, supersonic) {
-	supersonic.ui.navigationBar.update({
+	var options = {
 		overrideBackButton: true
-	}).then(supersonic.ui.navigationBar.show());
+	}
+	supersonic.ui.navigationBar.update(options).then(supersonic.ui.navigationBar.show());
 	$scope.navbarTitle = "Learn More";
     $scope.x = "Hello";
     $scope.wth = 'I am a variable';
