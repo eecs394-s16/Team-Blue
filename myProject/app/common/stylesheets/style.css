@@ -1,3 +1,11 @@
+
+a:hover{
+cursor: pointer;
+}
+
+.padding{
+	overflow: scroll;
+}
 .container{
 	padding: 0;
 }
@@ -15,18 +23,18 @@ font-size: 1.5em;
 color:red;
 }
 
-
-.user_name, .time{
-	/*padding-left: 2%;*/
-	overflow: visible;
-}
-
 #user_img{
-	max-width:180%;
-	max-height:180%;
+	max-width:40px;
+	max-height:40px;
 }
+.user_name, .time{
+	padding-right: 2%;
+	
+}
+
 .user_name{
 	color: #3b5998 !important;
+	width: 80%;
 }
 .time{
 	color:#9197a3 !important;
@@ -34,14 +42,29 @@ color:red;
 }
 .col-sm-2{
 	width: 17%;
+	/*padding-left: 0;*/
+}
+.col-sm-10{
+	width: 70%; 
+}
+.col-sm-4{
+	padding-left: 0;
+}
+
+#idea_title{
+	height: 40px;
+	width: auto;
+	position: relative;
+	left: 3%;
+	margin-right: 4%;
 }
 .feed, .feed_1{
 padding:5px !important;
 box-shadow: none;
 background-color: #f5f5f5 ;
 }
-
-.comment{
+/*.comment is the row of "likes, comment, join"*/
+.comment{ 
 text-align: center;
 padding-left: 9%;
 }
@@ -55,10 +78,6 @@ padding-left: 9%;
 #comment-input{
 	width: 155%;
 	margin-left: 0;
-}
-.row{
-	margin:0;
-	/*padding: 0;*/
 }
 
 #submit {
