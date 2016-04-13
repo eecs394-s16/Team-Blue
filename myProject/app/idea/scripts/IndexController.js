@@ -30,6 +30,7 @@ angular
           idea.likes+=1;
           idea.save();
           $scope.liked = true;
+
           // console.log($scope.liked);
           $scope.apply();
         });
@@ -72,5 +73,6 @@ angular
 		var view = new supersonic.ui.View("idea#new");
 		supersonic.ui.layers.push(view);
     };
+    
 
   });

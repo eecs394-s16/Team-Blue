@@ -1,18 +1,22 @@
 <div ng-controller="ShowController">
   <super-navbar>
     <super-navbar-title>
-      CrowdStorm
+      {{idea['title']}}
     </super-navbar-title>
   </super-navbar>
 
   <div class="padding">
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
     <div ng-hide="showSpinner">
-      <h2 ng-bind="idea['title']"></h2>
-      <p>{{idea.desc}}</p>
 
-      <p>{{idea.id}}</p>
+      <div class="idea-detail">
+        <div class="container">
+          <h2 ng-bind="idea['title']" id ="idea-detail-title"></h2>
+          <p>{{idea.desc}}</p>
 
+          <p>{{idea.id}}</p>
+        </div>
+      </div>
       <div class="container" >
         <div class="comments row">
           <div class="col-sm-2">
