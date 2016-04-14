@@ -56,8 +56,9 @@ padding-left: 9%;
 .comment_user_img{
 	max-width: 130%;
 }
-.comments{
-	background-color: #f5f5f5 ;
+#comments{
+	margin-top: 10px;
+	background-color: #f5f5f5;
 }
 #comment-input{
 	width: 155%;

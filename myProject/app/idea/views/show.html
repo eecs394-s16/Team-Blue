@@ -17,6 +17,7 @@
           <p>{{idea.id}}</p>
         </div>
       </div>
+      
       <div class="container" >
         <div class="comments row">
           <div class="col-sm-2">
@@ -29,7 +30,7 @@
        </div>
       </div>
 
-      <div class="comments">
+      <div id="comments">
         <div class="comment" ng-repeat="comment in comments track by $index">
           <p>{{comments[$index]}}</p>
         </div>
