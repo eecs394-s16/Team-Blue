@@ -70,7 +70,7 @@ angular
       }
       console.log($scope.idea);
       $scope.ideaRef.push(commenty);
-	    $scope.comments.unshift(texty);
+        $scope.comments.unshift(texty);
     }
 
   });

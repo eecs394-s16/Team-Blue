@@ -3,9 +3,13 @@ body{
 	overflow-x: hidden;
 	background-color: #f5f5f5;
 }
+h2{
+	font-size: 20px;
+}
 a:active{
 	color: #23527c;
 }
+/*+++++++++++++++++++++Home page idea cards++++++++++++++++++++++*/
 .card{
 	margin:0;
 	background-color:white !important;
@@ -23,10 +27,9 @@ a:active{
 .user_name, .time{
 	padding-right: 2%;	
 }
-
 .user_name{
 	color: #3b5998 !important;
-	width: 150%;
+	width: 220%;
 }
 .time{
 	color:#9197a3 !important;
@@ -38,6 +41,7 @@ a:active{
 }
 .upvoete{
 	width: 30%;
+	float: left;
 
 }
 .downvote{
@@ -61,9 +65,6 @@ a:active{
 .col-sm-4{
 	padding-left: 0;
 }
-.upvoete{
-	float: left;
-}
 
 #idea_title{
 	height: 40px;
@@ -82,20 +83,33 @@ background-color: #f5f5f5 ;
 .upload_pic{
 	padding-left: 0;
 }
+
+/*++++++++++++++++++++++++show.html===> showing the detail and comment of an Idea++++++++++++++++++++++++++++++++++++*/
 .comment{ 
 	text-align: left;
-	padding-left: 3%;
-}
+	padding-left: 5%;
+	margin-bottom: 3px;
+} /* parent div for other users'comment in show.html*/
 
-/*++++++++++++show.html++++++++++++++++++++++++++++*/
-.idea_detail{
+.idea_detail,.comment{
 	background-color: white !important;
 }
+.comment_input_container{
+	margin:1px 0 1px 0;
+	background-color: white;
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
 #comment_input{
-	border-radius: 0;
-	margin-left: 45px !important;
-	width: 250%;
-
+	margin:2px 0px 2px 20px !important;
+	width: 80%;
+	height: 40px;
+	border-color: #dcdee3;
+	box-shadow: none;
+	background-color: #f6f7f8;
+    border-radius: 0;
+    padding-top: 10px;
+    padding-left: 3px;
 }
 .comment_user_img{
 	width: 30px;
@@ -103,24 +117,33 @@ background-color: #f5f5f5 ;
 }
 #comments{
 	margin-top: 10px;
-	/*border: solid black; 
-	border-left: 0;
-	border-right: 0;*/
-}
+}/* each piece comment*/
 #comment_input{
 	margin-left: 0;
 	box-shadow: 1px 1px 2px #888888;
-}
-
+}/* textarea to input the comment*/
 #submit {
 	float:right;
-}
+	margin-top:-45px;
+} /*post comment btn*/
 .comment_content{
-	text-align: start;
-	margin-top: 10px;
-	
+	float: left;
+	margin-top: 25px;
+	clear: left;
+	margin-left: -75px;
 }
-/*+++++++++++Add new idea view+++++++++++++++++*/
+.comment_userName{
+	height: 20px;
+}
+
+.list:last-child.card{
+	margin-right: 6px;
+	margin-bottom:6px;
+}
+.list:first-child.card{
+	margin-top: 10px;
+}
+/*++++++++++++++++++++++++++Add new idea view++++++++++++++++++++++*/
 
 .add-new-idea{
 	border-left: 0 !important;
@@ -130,41 +153,25 @@ background-color: #f5f5f5 ;
 	margin-left: 0 !important;
 	margin-top: 4px;
 }
-input{
-	font-family: "Times New Roman", Times, serif;
+textarea{
+	font-family: "Times New Roman", Times, serif !important;
 	font-style: normal;
 }
 #add-new-idea-dscrp{
-	height: 100px;
-
+	height: 250px;
+}
+#add-new-idea-title{
+	height: 80px;
 }
 #user_img_new{
 	width: 40px;
 	height: 40px;
 	margin-bottom: 4px;
 	margin-left: 3%;
+	margin-top: 8px;
 }
 label .item ,label.item-input ,label.item-stacked-label{
 border-left: 0;
 border-right: 0;
 margin-right: 0;
-}
-
-
-
-/*idea detail and comment page*/
-.list:last-child.card{
-	margin-right: 6px;
-	margin-bottom:6px;
-}
-.list:first-child.card{
-	margin-top: 10px;
-}
-.idea-detail{
-	width: 100%;
-	box-shadow: 1px 1px 1px #888888;
-}
-h2 #ideal-detail-title{
-	font-size: 16px !important;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
