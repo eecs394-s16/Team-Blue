@@ -75,26 +75,10 @@ angular
     };
 
 
-	// $scope.newIdea = function() {
-	// 	var view = new supersonic.ui.View("idea#new");
-	// 	supersonic.ui.layers.push(view);
-  //   };
+	$scope.newIdea = function() {
+		var view = new supersonic.ui.View("idea#new");
+		supersonic.ui.layers.push(view);
+    };
 
 
   });
-
-  //   Idea.all().whenChanged( function (ideas) {
-  //       $scope.$apply( function () {
-  //         $scope.ideas = ideas;
-  //         $scope.showSpinner = false;
-  //       // });
-  //       // var data = supersonic.data.model('Idea');
-  //       // data.findAll().then(function(arr) {
-  //         $scope.ideas.ratings = [];
-  //         for (item of ideas) {
-  //           var rating = item.upvotes-item.downvotes;
-  //           $scope.ideas.ratings.push(rating);
-  //         }
-  //         console.log($scope.ideas.ratings);
-  //       });
-  //   });
