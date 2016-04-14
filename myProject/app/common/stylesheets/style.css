@@ -1,12 +1,15 @@
 /*index.html*/
+body{
+	overflow-x: hidden;
+}
 a:active{
 	color: #23527c;
 }
-.padding{
+/*.padding{
 	overflow: scroll;
 	padding-left: 0;
 	padding-right: 0;
-}
+}*/
 
 #user_img{
 	max-width:40px;
@@ -18,7 +21,9 @@ a:active{
 
 .user_name{
 	color: #3b5998 !important;
-	width: 80%;
+	width: 150%;
+	height: 30px;
+
 }
 .time{
 	color:#9197a3 !important;
@@ -86,6 +91,7 @@ input{
 }
 #add-new-idea-dscrp{
 	height: 100px;
+
 }
 #user_img_new{
 	width: 40px;
@@ -98,6 +104,9 @@ border-left: 0;
 border-right: 0;
 margin-right: 0;
 }
+
+
+
 /*idea detail and comment page*/
 .list:last-child.card{
 
