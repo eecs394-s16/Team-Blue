@@ -41,7 +41,7 @@ angular
       };
       $scope.ideas.$loaded().then(function() {
         $scope.showSpinner = false;
-        $scope.ideas.reverse();
+        // $scope.ideas.reverse();
       });
     // }
 

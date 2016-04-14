@@ -24,14 +24,14 @@ angular
       var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date());
 
       var ref = new Firebase(db_url);
-      // ref.child("ideas").push(newidea);
+      ref.child("ideas").push(newidea);
+      $scope.showSpinner = false;
+      supersonic.ui.layers.popAll();
+      // $scope.ideas = new $firebaseArray(ref.child("ideas"));
+      // $scope.ideas.$add(newidea);
+      // $scope.ideas.$save().then(function() {
 
-      $scope.ideas = new $firebaseArray(ref.child("ideas"));
-      $scope.ideas.$add(newidea);
-      $scope.ideas.$save().then(function() {
-        $scope.showSpinner = false;
-        supersonic.ui.layers.popAll();
-      })
+      // })
 
     };
 
