@@ -25,22 +25,25 @@ angular
     // var addIdea = function(ideasRef, idea) {
     //   ideasRef.push(idea);
     // }
-    console.log(db_url);
-    var ref = new Firebase(db_url);
-    $scope.ideasRef = ref.child("ideas");
-    // $scope.ideasRef.push(new Idea("hello", "wawa", "me", new Date()));
+    // console.log(db_url);
+    // var _refreshViewData = function () {
+      var ref = new Firebase(db_url);
+      $scope.ideasRef = ref.child("ideas");
+      // $scope.ideasRef.push(new Idea("hello", "wawa", "me", new Date()));
 
-    $scope.ideas = new $firebaseArray($scope.ideasRef);
-    console.log($scope.ideas);
-    $scope.upvoteVotings = [];
-    $scope.downvoteVotings = [];
-    for (var i = 0; i++; i<$scope.ideas.length) {
-      $scope.upvoteVotings.push(false);
-      $scope.downvoteVotings.push(false);
-    };
-    $scope.ideas.$loaded().then(function() {
-      $scope.showSpinner = false;
-    });
+      $scope.ideas = new $firebaseArray($scope.ideasRef);
+
+      $scope.upvoteVotings = [];
+      $scope.downvoteVotings = [];
+      for (var i = 0; i++; i<$scope.ideas.length) {
+        $scope.upvoteVotings.push(false);
+        $scope.downvoteVotings.push(false);
+      };
+      $scope.ideas.$loaded().then(function() {
+        $scope.showSpinner = false;
+        $scope.ideas.reverse();
+      });
+    // }
 
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);

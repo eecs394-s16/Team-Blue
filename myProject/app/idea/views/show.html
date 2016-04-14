@@ -8,18 +8,15 @@
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
-
     <div class="idea_detail">
       <div class="container ">
         <h2 ng-bind="idea['title']" id ="idea_detail_title"></h2>
         <p>{{idea.desc}}</p>
-
-        <p>{{idea.id}}</p>
       </div>
     </div>
-    
+
     <div class="container row" >
-     
+
         <span class="upload_pic">
 <!--             <button ><i class="icon super-camera"></i></button>  -->
         </span>
@@ -27,7 +24,7 @@
         </textarea>
         <button id="submit" ng-click="addComment()"class = "button button-clear">Post</button>
        </div>
-     
+
     </div>
 
    <!--  <div id="comments">

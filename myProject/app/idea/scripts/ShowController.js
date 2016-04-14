@@ -1,41 +1,47 @@
 angular
   .module('idea')
-  .controller("ShowController", function ($scope, Idea, supersonic) {
+  .controller("ShowController", function ($scope, Idea, db_url, supersonic, $firebaseArray, $firebaseObject) {
     $scope.idea = null;
-    $scope.showSpinner = true;
+    $scope.showSpinner = false;
     $scope.dataId = undefined;
     $scope.comments = [];
-    var Comments = supersonic.data.model("Comment");
+    $scope.ideaRef = null;
+    // supersonic.logger.debug($scope.dataId);
+    // // var Comments = supersonic.data.model("Comment");
+    // var ref = new Firebase(db_url);
+    // $scope.ideasRef = ref.child("ideas");
+    // // $scope.ideasRef.push(new Idea("hello", "wawa", "me", new Date()));
+    //
+    // $scope.ideas = new $firebaseArray($scope.ideasRef);
+    //
+    // $scope.ideas.$loaded().then(function() {
+    //   $scope.idea = $scope.ideas.$getRecord($scope.dataId);
+    //   $scope.showSpinner = false;
+    //   getComments();
+    // });
     var _refreshViewData = function () {
-      Idea.find($scope.dataId).then( function (idea) {
-        $scope.$apply( function () {
-          $scope.idea = idea;
-          supersonic.logger.debug((idea.id).toString());
-          console.log(idea.id);
-          $scope.showSpinner = false;
-          
-          console.log(Comments);
-          
-          getComments(Comments);
-
+      $scope.ideaRef = new Firebase(db_url + 'ideas/' + $scope.dataId.toString());
+      $scope.showSpinner = false;
+      $scope.idea = new $firebaseObject($scope.ideaRef);
+      console.log($scope.idea);
+      $scope.ideaRef.once("value", function(snapshot) {
+        // The callback function will get called twice, once for "fred" and once for "barney"
+        snapshot.forEach(function(childSnapshot) {
+          // key will be "fred" the first time and "barney" the second time
+          var key = childSnapshot.key();
+          // childData will be the actual contents of the child
+          if (key[0]=='-') {
+            $scope.comments.push(childSnapshot.val().hello);
+          }
         });
       });
+
+
+
     }
 
-    function getComments(Comments) {
-      $scope.comments = [];
-      Comments.findAll().then( function (comments) {
-            $scope.$apply( function() {
-              for (comment of comments) {
-                if (comment.idea_id==$scope.idea.id) {
-                  // console.log('woot');
-                  $scope.comments.push(comment.text);
-                  
-                }
-              }
-            });
-            console.log($scope.comments);
-          });
+    function getComments() {
+
     }
     supersonic.ui.views.current.whenVisible( function () {
       if ( $scope.dataId ) {
@@ -57,16 +63,14 @@ angular
     }
 
     $scope.addComment = function() {
-      var texty = (document.getElementById('comment-input').value).toString();
-      var iid = $scope.idea.id;
+      var texty = (document.getElementById('comment_input').value).toString();
+
       var commenty = {
-        idea_id: iid,
-        text: texty
+        hello: texty
       }
-      var comment = new Comments(commenty);
-      comment.save();
-	  $scope.comments.push(texty);
-      $scope.$apply();
+      console.log($scope.idea);
+      $scope.ideaRef.push(commenty);
+	    $scope.comments.unshift(texty);
     }
-    
+
   });
