@@ -16,9 +16,7 @@
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
     <ul class="list" ng-hide="ideas.length == 0">
-
       <div ng-repeat="idea in ideas">
-        
           <div class="list card feed">
             <div class="item item-avatar feed_1">
               <super-navigate data-params-id="{{idea.id}}" location="idea#show">

@@ -89,14 +89,15 @@ background-color: #f5f5f5 ;
 	background-color: #f5f5f5;
 }
 #comment-input{
-	width: 155%;
 	margin-left: 0;
+	box-shadow: 1px 1px 2px #888888;
 }
 
 #submit {
 	float:right;
-	margin-right: -50%;
-	margin-top: 10px;
+	/*margin-right: -50%;*/
+	/*margin-top: 10px;*/
+	/*clear: left;*/
 }
 /*+++++++++++Add new idea view+++++++++++++++++*/
 

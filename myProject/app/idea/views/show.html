@@ -19,33 +19,35 @@
       </div>
       
       <div class="container" >
-        <div class="comments row">
-          <div class="col-sm-2">
-            <img class="comment_user_img"src="https://bholanauthj.files.wordpress.com/2015/06/business-intelligence-icon.png"> 
-         </div>
-         <div class="col-sm-10">
-           <input type="text" id="comment-input">
-           <button id="submit" ng-click="addComment()">Submit comment</button>
+        <div class="upload_img row">
+          <span class="col-sm-2">
+<!--             <button ><i class="icon super-camera"></i></button>  -->
+          </span>
+          <textarea type="text" id="comment-input">
+          </textarea>
+          <button id="submit" ng-click="addComment()"class = "button button-clear">Post</button>
          </div>
        </div>
       </div>
 
-      <div id="comments">
+     <!--  <div id="comments">
         <div class="comment" ng-repeat="comment in comments track by $index">
           <p>{{comments[$index]}}</p>
         </div>
+      </div> -->
 
+  <div class="comments">
+    <ul class="list" ng-hide="ideas.length == 0">
+      <div class="comment" ng-repeat="comment in comments track by $index">
+        <div class="row">
+          <div class="comment_user_img">
+             <img id="user_img"src="https://bholanauthj.files.wordpress.com/2015/06/business-intelligence-icon.png">
+          </div>
+          <div class="comment_content">
+            {{comments[$index]}}
+          </div>
+        </div>
       </div>
-
-      <!-- <super-modal-show location="idea#edit?id={{ idea.id }}">
-        <button class="button button-block button-positive">
-          Edit
-        </button>
-      </super-modal-show>
-
-      <button ng-click="remove(idea.id)" class="button button-block button-negative">
-        Remove
-      </button> -->
-    </div>
+    </ul>
   </div>
 </div>
