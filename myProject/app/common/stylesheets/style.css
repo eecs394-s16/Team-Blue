@@ -29,15 +29,36 @@ a:active{
 	color:#9197a3 !important;
 	font:15px  !important;
 }
+.vote{
+	width: 60%;
+}
+.upvoete{
+	width: 30%;
+
+}
+.downvote{
+	width: 30%;
+	padding-left: 10px;
+}
+#votes{
+	width: 40%;
+	text-align: center;
+}
+.super-chevron-down{
+	padding-right: 15px !important;
+	padding-right: 15px !important;
+}
 .col-sm-2{
 	width: 17%;
-	/*padding-left: 0;*/
 }
 .col-sm-10{
-	width: 70%; 
+	width: 50%; 
 }
 .col-sm-4{
 	padding-left: 0;
+}
+.upvoete{
+	float: left;
 }
 
 #idea_title{

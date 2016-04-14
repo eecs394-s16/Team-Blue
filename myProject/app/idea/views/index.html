@@ -10,7 +10,7 @@
   <super-navbar>
   <super-navbar-button id="menuButton" side="left" onclick="supersonic.ui.drawers.open()">&#9776;</super-navbar-button>
     <super-navbar-title>CrowdStorm</super-navbar-title>
-  <super-navbar-button id="createForm" side="right" ng-click="newIdea()">&#10010;</super-navbar-button>
+  <super-navbar-button id="createForm" side="right" ng-click="newIdea()">&#10010;New</super-navbar-button>
   </super-navbar>
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
@@ -35,15 +35,25 @@
                   </div> <!-- .user-info .row  -->
                   </div>
                    <p id="idea_title">{{idea.desc}}</p>
-                   <!-- <a href="#" class="subdued col-sm-3">Share</a> -->
+                   
                 </div>
               </super-navigate>
-              <!-- <div class="item item-body"> -->
+
                 <div class="comment row">
-                  <a href="#" ng-click="like(idea.id)" class="subdued col-sm-3 ">{{idea.likes}} Likes</a>
-                  <a href="#" ng-click="comment(idea.id)" class="subdued col-sm-3 ">{{idea.comments}} Comments</a>
-                  <a href="#" ng-click="storm(idea.id)" class="subdued col-sm-3 ">{{idea.storms}} Joined the Storm</a>
-                  
+                  <span class="vote">
+                    <a href="#" ng-click="like(idea.id)" class="subdued upvote"> 
+                      <i class="icon super-chevron-up"></i>
+                    </a>
+                    <span id = "votes">{{idea.likes}}</span>
+                    <a href="#" ng-click="like(idea.id)" class="subdued downvote "> 
+                      <i class="icon super-chevron-down"></i>
+                    </a>
+                  </span>
+                  <span class="comment_container">
+                    <a href="#" ng-click="comment(idea.id)" class="subdued col-sm-3 "> {{idea.likes}} </a>
+                    <i class="icon super-chatbox"></i>
+                   <span>Comment</span>
+                 </span>
                 </div>
               </div>
             
