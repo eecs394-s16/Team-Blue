@@ -1,0 +1,31 @@
+/*Styling for NEW.html*/
+.add-new-idea{
+	border-left: 0 !important;
+	border-right: 0 !important;
+	width: 100% !important;
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+	margin-top: 4px;
+}
+textarea{
+	font-family: "Times New Roman", Times, serif !important;
+	font-style: normal;
+}
+#add-new-idea-dscrp{
+	height: 250px;
+}
+#add-new-idea-title{
+	height: 80px;
+}
+#user_img_new{
+	width: 40px;
+	height: 40px;
+	margin-bottom: 4px;
+	margin-left: 3%;
+	margin-top: 8px;
+}
+label .item ,label.item-input ,label.item-stacked-label{
+border-left: 0;
+border-right: 0;
+margin-right: 0;
+}
