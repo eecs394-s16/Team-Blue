@@ -1,6 +1,6 @@
 angular
   .module('idea')
-  .controller("EditController", function ($scope, Idea, supersonic) {
+  .controller("EditController", function ($scope, supersonic) {
     $scope.idea = null;
     $scope.showSpinner = true;
 

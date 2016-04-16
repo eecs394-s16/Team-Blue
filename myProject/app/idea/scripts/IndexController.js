@@ -1,6 +1,7 @@
 angular
   .module('idea')
-  .controller("IndexController", function ($scope, Idea, supersonic, db_url, $firebaseObject, $firebaseArray) {
+  .controller("IndexController", function ($scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
+    "use strict";
     $scope.ideas = [];
     $scope.ideasRef = null;
     $scope.showSpinner = true;

@@ -1,9 +1,9 @@
 angular
   .module('idea')
-  .controller("ShowController", function ($scope, Idea, db_url, supersonic, $firebaseArray, $firebaseObject) {
+  .controller("ShowController", function ($scope, db_url, supersonic, $firebaseArray, $firebaseObject) {
     $scope.idea = null;
     $scope.showSpinner = false;
-    $scope.dataId = undefined;
+    $scope.dataId = null;
     $scope.comments = [];
     $scope.ideaRef = null;
     // supersonic.logger.debug($scope.dataId);

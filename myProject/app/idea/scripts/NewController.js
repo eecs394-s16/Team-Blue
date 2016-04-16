@@ -1,6 +1,7 @@
 angular
   .module('idea')
-  .controller("NewController", function ($scope, Idea, supersonic, db_url, $firebaseArray) {
+  .controller("NewController", function ($scope, supersonic, db_url, $firebaseArray) {
+    "use strict";
     $scope.idea = {};
     $scope.showSpinner = false;
     class Idea {
@@ -27,6 +28,7 @@ angular
       ref.child("ideas").push(newidea);
       $scope.showSpinner = false;
       supersonic.ui.layers.popAll();
+
       // $scope.ideas = new $firebaseArray(ref.child("ideas"));
       // $scope.ideas.$add(newidea);
       // $scope.ideas.$save().then(function() {
