@@ -6,7 +6,6 @@ angular
     $scope.ideasRef = null;
     $scope.showSpinner = true;
 
-
     class Idea {
       constructor(title, desc, author, currentdate) {
         this.title = title;
@@ -15,10 +14,16 @@ angular
         this.upvotes = 0;
         this.downvotes = 0;
 
+        /*sam's date stuff*/
+
+        /*var time = currentDate.getHours() + ":" + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+        this.time = time;*/
+
         var date = currentdate.getDay() + "/"+currentdate.getMonth()
               + "/" + currentdate.getFullYear() + " "
-              + currentdate.getHours() + ":"
-              + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+              + currentDate.getHours() + ":" + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();;
         this.date = date;
       }
     }
@@ -36,6 +41,7 @@ angular
 
       $scope.upvoteVotings = [];
       $scope.downvoteVotings = [];
+    //for (var i = $scope.ideas.length; i--; i<=0) {
       for (var i = 0; i++; i<$scope.ideas.length) {
         $scope.upvoteVotings.push(false);
         $scope.downvoteVotings.push(false);

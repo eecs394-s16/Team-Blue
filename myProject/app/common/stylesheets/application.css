@@ -1,4 +1,7 @@
 @import "style.css";
+@import "index.css";
+@import "show.css";
+@import "new.css";
 
 .supersonic-navbar-mock {
   background-color: #00B5FF !important;
