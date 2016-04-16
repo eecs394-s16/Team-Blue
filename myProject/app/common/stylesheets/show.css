@@ -6,7 +6,7 @@
 	margin-bottom: 3px;
 } /* parent div for other users'comment in show.html*/
 
-.idea_detail,.comment{
+.idea_detail, .comment{
 	background-color: white !important;
 	
 }
@@ -15,6 +15,16 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
+
+.idea_title {
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.idea_desc {
+	font-size: 14px;
+}
+
 .comment_input_container{
 	margin:1px 0 1px 0;
 	background-color: white;
@@ -45,21 +55,20 @@
 }/* textarea to input the comment*/
 #submit {
 	float:right;
-	margin-top:-45px;
+	/*margin-top:-45px;*/
 } /*post comment btn*/
 .comment_content{
 	float: left;
-	margin-top: 25px;
-	clear: left;
-	margin-left: -75px;
+	font-size: 16px;
 }
 .comment_userName{
-	height: 20px;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 .list:last-child.card{
 	margin-right: 6px;
-	margin-bottom:6px;
+	margin-bottom: 6px;
 }
 .list:first-child.card{
 	margin-top: 10px;

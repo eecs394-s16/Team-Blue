@@ -1,43 +1,41 @@
 <div ng-controller="ShowController">
   <super-navbar>
-    <super-navbar-title>
-      {{idea['title']}}
-    </super-navbar-title>
+    <super-navbar-title ng-bind="idea['title']"></super-navbar-title>
   </super-navbar>
 
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
     <div class="idea_detail">
-      <div class="container ">
-        <h2 ng-bind="idea['title']" id ="idea_detail_title"></h2>
-        <p>{{idea.desc}}</p>
+      <div class="container">
+        <h2 class="idea_title" ng-bind="idea['title']" id ="idea_detail_title"></h2>
+        <p class="idea_desc">{{idea.desc}}</p>
       </div>
     </div>
 
     <!--  add <form> to clear input after submit the comment. -->
 
-    <div class=" comment_input_container" >
+    <div class="comment_input_container">
       <form name="cmtForm" ng-submit="clearForm()">
-      <textarea type="text" name = "comment_input" id="comment_input" ng-model="comment_input" placeholder="Write a comment..."></textarea>
-      <button id="submit" ng-click="addComment()"class = "button button-clear" type="submit">Post</button>
+        <div class="row">
+          <textarea type="text" name = "comment_input" id="comment_input" ng-model="comment_input" placeholder="Write a comment..."></textarea>
+          <button id="submit" ng-click="addComment()"class = "button button-clear" type="submit">Post</button>
+        </div>
       </form>
     </div> 
 
   <div class="comments">
-    <ul class="list" ng-hide="ideas.length == 0">
+    <ul class="list" ng-hide="ideas.length==0">
       <div class="comment" ng-repeat="comment in comments track by $index">
         <div class="row">
           <div class="comment_user_img">
-             <img id="user_img"src="https://bholanauthj.files.wordpress.com/2015/06/business-intelligence-icon.png">
+            <img id="user_img"src="https://bholanauthj.files.wordpress.com/2015/06/business-intelligence-icon.png">
           </div>
-          <div class="comment_userName">
-           <b>April Smith</b> 
+          <div class="comment_row">
+            <h3 class="comment_userName">April Smith</h3>
+            <p class="comment_content" ng-bind="comments[$index]"></p>
           </div>
-          <div class="comment_content">
-            {{comments[$index]}}
-          </div>
-        </div>
+       </div>
       </div>
     </ul>
   </div>
