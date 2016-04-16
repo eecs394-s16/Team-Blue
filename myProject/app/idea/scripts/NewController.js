@@ -11,29 +11,22 @@ angular
         this.author = author;
         this.upvotes = 0;
         this.downvotes = 0;
-
         var addZero = function(i) {
           if (i < 10) {
               i = "0" + i;
           }
           return i;
         }
-
         var month = addZero(currentdate.getMonth()+1);
         var date = addZero(currentdate.getDate());
-
         var h = addZero(currentdate.getHours());
         var m = addZero(currentdate.getMinutes());
         var s = addZero(currentdate.getSeconds());
-
         var date = month + "/" + date
               + "/" + currentdate.getFullYear() + " "
               + h + ":" + m + ":"
               + s;
         this.date = date;
-
-        /*var time = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-        this.time = time;*/
       }
     }
 
