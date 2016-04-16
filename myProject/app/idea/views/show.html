@@ -15,19 +15,14 @@
       </div>
     </div>
 
-    
+    <!--  add <form> to clear input after submit the comment. -->
+
     <div class=" comment_input_container" >
-      <textarea type="text" id="comment_input" placeholder="Write a comment..."></textarea>
-      <button id="submit" ng-click="addComment()"class = "button button-clear">Post</button>
-    </div>
-     
-
-
-   <!--  <div id="comments">
-      <div class="comment" ng-repeat="comment in comments track by $index">
-        <p>{{comments[$index]}}</p>
-      </div>
-    </div> -->
+      <form name="cmtForm" ng-submit="clearForm()">
+      <textarea type="text" name = "comment_input" id="comment_input" ng-model="comment_input" placeholder="Write a comment..."></textarea>
+      <button id="submit" ng-click="addComment()"class = "button button-clear" type="submit">Post</button>
+      </form>
+    </div> 
 
   <div class="comments">
     <ul class="list" ng-hide="ideas.length == 0">

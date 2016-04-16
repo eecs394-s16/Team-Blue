@@ -63,6 +63,7 @@ angular
     }
 
     $scope.addComment = function() {
+
       var texty = (document.getElementById('comment_input').value).toString();
 
       var commenty = {
@@ -71,6 +72,14 @@ angular
       console.log($scope.idea);
       $scope.ideaRef.push(commenty);
         $scope.comments.unshift(texty);
-    }
+        
+    };
+
+//clear input textarea after submit the comment
+    $scope.clearForm = function (){
+            $scope.cmtForm.comment_input.$setPristine(); // doesn't work
+            $scope.cmtForm.comment_input.$setPristine(true); // doesn't work
+            $scope.comment_input = ''; // doesn't work
+    };
 
   });
