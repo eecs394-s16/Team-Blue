@@ -13,9 +13,12 @@ angular
 
         var date = currentdate.getDay() + "/"+currentdate.getMonth()
               + "/" + currentdate.getFullYear() + " "
-              + currentdate.getHours() + ":"
-              + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+              + currentDate.getHours() + ":" + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();;
         this.date = date;
+
+        /*var time = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+        this.time = time;*/
       }
     }
 

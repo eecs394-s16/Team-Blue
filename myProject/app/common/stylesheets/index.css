@@ -34,6 +34,7 @@ a:active{
 .time{
 	color:#9197a3 !important;
 	font:15px  !important;
+
 }
 .vote{
 	width: 60%;
@@ -60,7 +61,7 @@ a:active{
 	width: 17%;
 }
 .col-sm-10{
-	width: 50%; 
+	width: 100%; 
 }
 .col-sm-4{
 	padding-left: 0;

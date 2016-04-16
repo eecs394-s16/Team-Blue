@@ -8,7 +8,7 @@
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
     <ul class="list">
-      <div ng-repeat="idea in ideas">
+      <div ng-repeat="idea in ideas | orderBy:'-date'">
           <div class="list card feed">
             <div class="item item-avatar feed_1">
               <super-navigate data-params-id="{{idea.$id}}" location="idea#show">
@@ -20,7 +20,10 @@
                     </div>
                     <div class="col-sm-10">
                       <p class="user_name">{{idea.title}}</p>
-                      <p class="time">Joe McDoe 12:00pm 3/4/5</p>
+                      <p class="time">
+                        <!-- {{date | date:'short'}} -->
+                        {{idea.date}}
+                      </p>
                     </div>
                   </div> <!-- .user-info .row  -->
                   </div>
