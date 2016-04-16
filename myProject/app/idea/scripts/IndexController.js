@@ -14,12 +14,6 @@ angular
         this.upvotes = 0;
         this.downvotes = 0;
 
-        /*sam's date stuff*/
-
-        /*var time = currentDate.getHours() + ":" + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-        this.time = time;*/
-
         var date = currentdate.getDay() + "/"+currentdate.getMonth()
               + "/" + currentdate.getFullYear() + " "
               + currentDate.getHours() + ":" + currentdate.getMinutes() + ":"
