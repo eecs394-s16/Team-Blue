@@ -8,6 +8,12 @@
 
 .idea_detail,.comment{
 	background-color: white !important;
+	
+}
+.idea_detail{
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .comment_input_container{
 	margin:1px 0 1px 0;
