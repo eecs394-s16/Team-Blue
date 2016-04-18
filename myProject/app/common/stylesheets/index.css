@@ -38,24 +38,25 @@ a:active{
 }
 .vote{
 	width: 60%;
-	padding-left: 6%;
+	padding-left: 4%;
 }
-.upvoete{
-	width: 30%;
-	float: left;
+.upvote{
+	width: 25%;
+	float: center-left;
 
 }
 .downvote{
-	width: 30%;
-	padding-left: 10px;
+	width: 25%;
+	float: center;
+	padding-left: 18%;
 }
-#votes{
-	width: 40%;
-	text-align: center;
+#upvotes{
+	width: 25%;
+	text-align: left;
 }
-.super-chevron-down{
-	padding-right: 15px !important;
-	padding-right: 15px !important;
+#downvotes{
+	width: 25%;
+	text-align: left;
 }
 .col-sm-2{
 	width: 17%;
