@@ -5,7 +5,10 @@ angular
     $scope.idea = {};
     $scope.showSpinner = false;
     class Idea {
-      constructor(title, desc, author, currentdate) {
+      constructor(title, desc, author, currentdate, tags) {
+        this.tags = tags;
+
+
         this.title = title;
         this.desc = desc;
         this.author = author;
@@ -32,7 +35,8 @@ angular
 
     $scope.submitForm = function () {
       $scope.showSpinner = true;
-      var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date());
+      var tags = ['tag1','tag2'];
+      var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), tags);
 
       var ref = new Firebase(db_url);
       ref.child("ideas").push(newidea);
