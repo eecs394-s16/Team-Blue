@@ -43,7 +43,7 @@ module.exports =
   drawers:
     left:
       id: "leftDrawer"
-      location: "example#drawer"
+      location: "common#leftDrawer"
       showOnAppLoad: false
     options:
       animation: "swingingDoor"

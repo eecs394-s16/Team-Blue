@@ -1,0 +1,12 @@
+<script>
+  document.addEventListener("touchmove", function(e){
+    e.preventDefault();
+  });
+</script>
+<ul class="list">
+	<li class="item" onclick="supersonic.ui.drawers.close();supersonic.ui.layers.popAll()">Home</li>
+  <super-navigate location="idea#new">
+	<li class="item" onclick="supersonic.ui.drawers.close()">Create</li>
+  </super-navigate>
+  <li class="item">test</li>
+</ul>

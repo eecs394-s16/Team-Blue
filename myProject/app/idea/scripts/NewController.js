@@ -6,10 +6,13 @@ angular
     $scope.showSpinner = false;
 
     var ref = new Firebase(db_url);
-    $scope.tagList = new $firebaseArray(ref.child("tags"));
-
-    $scope.tagList.$loaded().then(function(tags) {
-      console.log(tags);
+    var tagArr = new $firebaseArray(ref.child("tags"));
+    $scope.tagList = [];
+    tagArr.$loaded().then(function(tags) {
+      tags.forEach(function(tag) {
+        console.log(tag.$value);
+        $scope.tagList.push(tag.$value);
+      });
     });
 
     $scope.submitForm = function () {

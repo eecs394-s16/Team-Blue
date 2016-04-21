@@ -6,19 +6,7 @@ angular
     $scope.dataId = null;
     $scope.comments = [];
     $scope.ideaRef = null;
-    // supersonic.logger.debug($scope.dataId);
-    // // var Comments = supersonic.data.model("Comment");
-    // var ref = new Firebase(db_url);
-    // $scope.ideasRef = ref.child("ideas");
-    // // $scope.ideasRef.push(new Idea("hello", "wawa", "me", new Date()));
-    //
-    // $scope.ideas = new $firebaseArray($scope.ideasRef);
-    //
-    // $scope.ideas.$loaded().then(function() {
-    //   $scope.idea = $scope.ideas.$getRecord($scope.dataId);
-    //   $scope.showSpinner = false;
-    //   getComments();
-    // });
+
     var _refreshViewData = function () {
       $scope.ideaRef = new Firebase(db_url + 'ideas/' + $scope.dataId.toString());
       $scope.showSpinner = false;
@@ -72,7 +60,7 @@ angular
       console.log($scope.idea);
       $scope.ideaRef.push(commenty);
         $scope.comments.unshift(texty);
-        
+
     };
 
 //clear input textarea after submit the comment
