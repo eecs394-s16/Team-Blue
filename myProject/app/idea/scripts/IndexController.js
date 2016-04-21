@@ -20,6 +20,16 @@ angular
       $scope.showSpinner = false;
     });
 
+    var ref = new Firebase('https://crowdstormdb.firebaseio.com/');
+    var tagArr = new $firebaseArray(ref.child("tags"));
+    $scope.tagList = [];
+    tagArr.$loaded().then(function(tags) {
+      tags.forEach(function(tag) {
+        console.log(tag.$value);
+        $scope.tagList.push(tag.$value);
+      });
+    });
+
 
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);

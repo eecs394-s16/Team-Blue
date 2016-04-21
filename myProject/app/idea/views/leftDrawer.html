@@ -2,12 +2,13 @@
   document.addEventListener("touchmove", function(e){
     e.preventDefault();
   });
-  console.log(tagList);
 </script>
-<ul class="list">
+
+<ul ng-controller="IndexController" class="list">
 	<li class="item" onclick="supersonic.ui.drawers.close();supersonic.ui.layers.popAll()">Home</li>
   <super-navigate location="idea#new">
 	<li class="item" onclick="supersonic.ui.drawers.close()">Create</li>
   </super-navigate>
-  <li class="item" ng-repeat="tag in tagList">{{tag}}hola</li>
+  <li id="tags">Tags:</li>
+  <li class="item" ng-repeat="tag in tagList">{{tag}}</li>
 </ul>
