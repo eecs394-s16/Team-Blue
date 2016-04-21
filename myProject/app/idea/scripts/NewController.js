@@ -4,6 +4,26 @@ angular
     "use strict";
     $scope.idea = {};
     $scope.showSpinner = false;
+
+    var ref = new Firebase(db_url);
+    $scope.tagList = new $firebaseArray(ref.child("tags"));
+
+    $scope.tagList.$loaded().then(function(tags) {
+      console.log(tags);
+    });
+
+    $scope.submitForm = function () {
+      $scope.showSpinner = true;
+      var tags = ['tag1','tag2'];
+      var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), tags);
+
+      var ref = new Firebase(db_url);
+      ref.child("ideas").push(newidea);
+      $scope.showSpinner = false;
+      supersonic.ui.layers.pop();
+    };
+
+
     class Idea {
       constructor(title, desc, author, currentdate, tags) {
         this.tags = tags;
@@ -32,23 +52,5 @@ angular
         this.date = date;
       }
     }
-
-    $scope.submitForm = function () {
-      $scope.showSpinner = true;
-      var tags = ['tag1','tag2'];
-      var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), tags);
-
-      var ref = new Firebase(db_url);
-      ref.child("ideas").push(newidea);
-      $scope.showSpinner = false;
-      supersonic.ui.layers.popAll();
-
-      // $scope.ideas = new $firebaseArray(ref.child("ideas"));
-      // $scope.ideas.$add(newidea);
-      // $scope.ideas.$save().then(function() {
-
-      // })
-
-    };
 
   });

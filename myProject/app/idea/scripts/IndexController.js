@@ -6,55 +6,20 @@ angular
     $scope.ideasRef = null;
     $scope.showSpinner = true;
 
-    class Idea {
-      constructor(title, desc, author, currentdate) {
-        this.title = title;
-        this.desc = desc;
-        this.author = author;
-        this.upvotes = 0;
-        this.downvotes = 0;
-        var addZero = function(i) {
-          if (i < 10) {
-              i = "0" + i;
-          }
-          return i;
-        }
-        var month = addZero(currentdate.getMonth()+1);
-        var date = addZero(currentdate.getDate());
-        var h = addZero(currentdate.getHours());
-        var m = addZero(currentdate.getMinutes());
-        var s = addZero(currentdate.getSeconds());
-        var date = month + "/" + date
-              + "/" + currentdate.getFullYear() + " "
-              + h + ":" + m + ":"
-              + s;
-        this.date = date;
-      }
-    }
+    var ref = new Firebase(db_url);
+    $scope.ideasRef = ref.child("ideas");
+    $scope.ideas = new $firebaseArray($scope.ideasRef);
 
-    // var addIdea = function(ideasRef, idea) {
-    //   ideasRef.push(idea);
-    // }
-    // console.log(db_url);
-    // var _refreshViewData = function () {
-      var ref = new Firebase(db_url);
-      $scope.ideasRef = ref.child("ideas");
-      // $scope.ideasRef.push(new Idea("hello", "wawa", "me", new Date()));
+    $scope.upvoteVotings = [];
+    $scope.downvoteVotings = [];
+    for (var i = 0; i++; i<$scope.ideas.length) {
+      $scope.upvoteVotings.push(false);
+      $scope.downvoteVotings.push(false);
+    };
+    $scope.ideas.$loaded().then(function() {
+      $scope.showSpinner = false;
+    });
 
-      $scope.ideas = new $firebaseArray($scope.ideasRef);
-
-      $scope.upvoteVotings = [];
-      $scope.downvoteVotings = [];
-    //for (var i = $scope.ideas.length; i--; i<=0) {
-      for (var i = 0; i++; i<$scope.ideas.length) {
-        $scope.upvoteVotings.push(false);
-        $scope.downvoteVotings.push(false);
-      };
-      $scope.ideas.$loaded().then(function() {
-        $scope.showSpinner = false;
-        // $scope.ideas.reverse();
-      });
-    // }
 
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
