@@ -29,3 +29,50 @@ border-left: 0;
 border-right: 0;
 margin-right: 0;
 }
+/*Tags*/
+.tag{
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 20px;
+}
+#plus_btn{
+	background-color:#4e2a84 !important;
+	border-radius: 0;
+	height: 40px;
+	width: 30px;
+	min-width: 40px !important;
+	min-height: 30px !important;
+	text-align: center;
+	line-height: 3px;
+	margin-right: 16px;
+
+
+}
+.dropdown_tags{
+	width: 80%;
+	height: 40px;
+	text-align: center;
+}
+.selectedTags{
+	text-align: center;
+}
+
+.showTags{
+	margin-top: 20px;
+}
+.selectedTags{
+	background-color: #4e2a84;
+	opacity:0.8;
+	padding:4px;
+	color: white;
+	margin-right:4px;
+}
+.save_btn{
+	background-color:#4e2a84 !important;
+	color: white;
+	border: none;
+	border-radius: 0;
+}
+
+
+

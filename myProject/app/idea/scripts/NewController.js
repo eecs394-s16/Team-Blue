@@ -17,8 +17,7 @@ angular
 
     $scope.submitForm = function () {
       $scope.showSpinner = true;
-      var tags = ['tag1','tag2'];
-      var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), tags);
+      var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), $scope.selectedTags);
 
       var ref = new Firebase(db_url);
       ref.child("ideas").push(newidea);
@@ -55,5 +54,35 @@ angular
         this.date = date;
       }
     }
+//This part of data should be retrieved from database
+     $scope.departments = [
+     "Tag a Category",
+      "ASG",
+      "EECS",
+      "Econ"
+    ];
 
+    $scope.taggedDept = $scope.departments[0];
+    $scope.selectedTags = [];
+    
+    
+    
+    $scope.addTag = function(taggedDept){
+      if($scope.departments.indexOf(taggedDept) != 0 
+        && jQuery.inArray(taggedDept, $scope.selectedTags) == -1 ){
+           $scope.selectedTags.push(taggedDept);
+           console.log(taggedDept);
+           console.log($scope.selectedTags);
+      }
+    };
+    // $scope.tagValue = true;
+    // if($scope.selectedTags.length != 0){
+    //     $scope.tagValue = false;
+    //     console.log($scope.tagValue);
+    //     console.log($scope.selectedTags.length);
+
+    // }else{
+    //     $scope.tagValue =true;
+    // };
+    
   });
