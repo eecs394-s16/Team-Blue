@@ -17,33 +17,11 @@ angular
       $scope.commentRef = $scope.ideaRef.child("comments");
       $scope.showSpinner = false;
       $scope.idea = new $firebaseObject($scope.ideaRef);
-      //attempt
-
       $scope.comments = new $firebaseArray($scope.commentRef);
       for (var i = 0; i++; i<$scope.comments.length) {
         $scope.upvoteVotings.push(false);
         $scope.downvoteVotings.push(false);
       };
-
-      // console.log($scope.idea);
-//       $scope.ideaRef.once("value", function(snapshot) {
-//         // The callback function will get called twice, once for "fred" and once for "barney"
-//         snapshot.forEach(function(childSnapshot) {
-
-//           //$scope.comments.push(childSnapshot.val());
-
-//           // key will be "fred" the first time and "barney" the second time
-//           var key = childSnapshot.key();
-//           // childData will be the actual contents of the child
-//           if (key[0]=='-') {
-// //            $scope.comments.push(childSnapshot.val().content);
-//             $scope.comments.push(childSnapshot.val());
-//           }
-//         });
-//       });
-
-
-
     }
 
     supersonic.ui.views.current.whenVisible( function () {
