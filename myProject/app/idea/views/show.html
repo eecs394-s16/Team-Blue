@@ -33,9 +33,23 @@
           </div>
           <div class="comment_row">
             <h3 class="comment_userName">April Smith</h3>
-            <p class="comment_content" ng-bind="comments[$index]"></p>
-          </div>
+            <!-- print the comment's content-->
+            <p class="comment_content" ng-bind="comments[$index].content"></p> 
+          </div>   
+            
        </div>
+
+       <span class="votes">
+	       	<a href="#" ng-click="upvote(comment.$id)" class="subdued upvote">
+	       		<i class="icon super-chevron-up"></i>
+	       	</a>
+	       	<span id = "upvotes">{{comment.upvotes}}</span>
+	       	<a href="#" ng-click="downvote(comment.$id)" class="subdued downvote">
+	       		<i class="icon super-chevron-down"></i>
+	       	</a>
+	       	<span id = "downvotes">{{comment.downvotes}}</span>
+	       </span>  
+
       </div>
     </ul>
   </div>
