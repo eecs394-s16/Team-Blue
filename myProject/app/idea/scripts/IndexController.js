@@ -1,7 +1,15 @@
 angular
   .module('idea')
-  .controller("IndexController", function ($scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
+  .factory('taggy', function() {
+    return {tag: 'NONE'};
+  })
+  .controller("IndexController", function (taggy, $timeout, $rootScope, $scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
     "use strict";
+
+    $scope.taggy=taggy.tag;
+    supersonic.bind($scope, "taggy");
+
+    $scope.showings = [];
     $scope.ideas = [];
     $scope.ideasRef = null;
     $scope.showSpinner = true;
@@ -18,19 +26,37 @@ angular
     };
     $scope.ideas.$loaded().then(function() {
       $scope.showSpinner = false;
-    });
-
-    var ref = new Firebase('https://crowdstormdb.firebaseio.com/');
-    var tagArr = new $firebaseArray(ref.child("tags"));
-    $scope.tagList = [];
-    tagArr.$loaded().then(function(tags) {
-      tags.forEach(function(tag) {
-        console.log(tag.$value);
-        $scope.tagList.push(tag.$value);
-      });
+      for (var i=0; i<$scope.ideas.length; i++) {
+        $scope.showings.push(true);
+      }
     });
 
 
+    function filter(tag) {
+      console.log('Filtering on tag:', tag);
+      if (tag=="NONE") {
+        for (var i=0; i<$scope.showings.length; i++) {
+          $scope.showings[i]=true;
+        }
+      }
+      else {
+        $scope.ideas.forEach(function (idea,index) {
+          if ((idea.tags!=null) && (idea.tags.indexOf(tag)>-1)) {
+              $scope.showings[index] = true;
+          }
+          else {
+            $scope.showings[index] = false;
+          }
+        });
+        // console.log($scope.showings);
+      }
+
+    };
+
+    $scope.$watch(function(scope) {return scope.taggy}, function(newTag) {
+      filter(newTag);
+    });
+    
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
       console.log(index);
@@ -60,11 +86,16 @@ angular
       }
     };
 
-
-	$scope.newIdea = function() {
-		var view = new supersonic.ui.View("idea#new");
-		supersonic.ui.layers.push(view);
+    $scope.newIdea = function() {
+  		var view = new supersonic.ui.View("idea#new");
+  		supersonic.ui.layers.push(view);
     };
 
+    $scope.test = function() {
+      console.log("testing");
+      for (var i=0; i<showings.length; i++) {
+        showings[i] = !showings[i];
+      }
+    }
 
-  });
+});

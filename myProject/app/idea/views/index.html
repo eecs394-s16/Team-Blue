@@ -7,8 +7,11 @@
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
+    <!-- <button type="button" name="button" ng-click="test()">Click Me</button> -->
+    <!-- <input type="text" ng-model="texty"> -->
+    <!-- <br>Input is : <strong>{{texty}}</strong> -->
     <ul class="list">
-      <div ng-repeat="idea in ideas | orderBy:'-date'">
+      <div ng-repeat="idea in ideas | orderBy:'-date' track by $index" ng-show="showings[$index]">
           <div class="list card feed">
             <div class="item item-avatar feed_1">
               <super-navigate data-params-id="{{idea.$id}}" location="idea#show">
