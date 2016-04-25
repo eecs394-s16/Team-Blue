@@ -55,7 +55,7 @@ angular
 
     $scope.addComment = function() {
       var texty = (document.getElementById('comment_input').value).toString();
-      newComment = new Comment1(texty);
+      var newComment = new Comment1(texty);
 
       $scope.commentRef.push(newComment);
     };
