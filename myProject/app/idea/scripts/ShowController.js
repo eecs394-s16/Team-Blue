@@ -1,6 +1,7 @@
 angular
   .module('idea')
   .controller("ShowController", function ($scope, db_url, supersonic, $firebaseArray, $firebaseObject) {
+    "use strict";
     $scope.idea = null;
     $scope.showSpinner = false;
     $scope.dataId = null;
@@ -18,7 +19,8 @@ angular
       $scope.showSpinner = false;
       $scope.idea = new $firebaseObject($scope.ideaRef);
       $scope.comments = new $firebaseArray($scope.commentRef);
-      for (var i = 0; i++; i<$scope.comments.length) {
+
+      for (var i = 0; i++; i < $scope.comments.length) {
         $scope.upvoteVotings.push(false);
         $scope.downvoteVotings.push(false);
       };
@@ -52,10 +54,10 @@ angular
     }
 
     $scope.addComment = function() {
-
       var texty = (document.getElementById('comment_input').value).toString();
       newComment = new Comment1(texty);
-      $scope.commentRef.push(newComment)
+
+      $scope.commentRef.push(newComment);
     };
 
     $scope.upvote = function(id) {
@@ -89,9 +91,9 @@ angular
 
 //clear input textarea after submit the comment
     $scope.clearForm = function (){
-            $scope.cmtForm.comment_input.$setPristine(); // doesn't work
-            $scope.cmtForm.comment_input.$setPristine(true); // doesn't work
-            $scope.comment_input = ''; // doesn't work
+      $scope.cmtForm.comment_input.$setPristine(); // doesn't work
+      $scope.cmtForm.comment_input.$setPristine(true); // doesn't work
+      $scope.comment_input = ''; // doesn't work
     };
 
   });
