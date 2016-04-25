@@ -5,18 +5,14 @@ angular
   })
   .controller("IndexController", function (taggy, $timeout, $rootScope, $scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
     "use strict";
-
+    $scope.showSpinner = true;
+    $scope.showings = [];
     $scope.taggy=taggy.tag;
     supersonic.bind($scope, "taggy");
 
-    $scope.showings = [];
     $scope.ideas = [];
-    $scope.ideasRef = null;
-    $scope.showSpinner = true;
-
     var ref = new Firebase(db_url);
-    $scope.ideasRef = ref.child("ideas");
-    $scope.ideas = new $firebaseArray($scope.ideasRef);
+    $scope.ideas = new $firebaseArray(ref.child("ideas"));
 
     $scope.upvoteVotings = [];
     $scope.downvoteVotings = [];
@@ -24,6 +20,7 @@ angular
       $scope.upvoteVotings.push(false);
       $scope.downvoteVotings.push(false);
     };
+
     $scope.ideas.$loaded().then(function() {
       $scope.showSpinner = false;
       for (var i=0; i<$scope.ideas.length; i++) {
@@ -50,13 +47,11 @@ angular
         });
         // console.log($scope.showings);
       }
-
     };
-
     $scope.$watch(function(scope) {return scope.taggy}, function(newTag) {
       filter(newTag);
     });
-    
+
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
       console.log(index);
@@ -90,12 +85,5 @@ angular
   		var view = new supersonic.ui.View("idea#new");
   		supersonic.ui.layers.push(view);
     };
-
-    $scope.test = function() {
-      console.log("testing");
-      for (var i=0; i<showings.length; i++) {
-        showings[i] = !showings[i];
-      }
-    }
 
 });

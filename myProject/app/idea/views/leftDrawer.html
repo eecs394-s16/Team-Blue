@@ -5,13 +5,11 @@
 </script>
 
 <ul ng-controller="drawerController" class="list">
-  <br>Binding: {{texty}}<br>
+  <li>Filter: {{taggy}}</li>
 	<li class="item" ng-click="reset()">Home</li>
   <super-navigate location="idea#new">
 	<li class="item" onclick="supersonic.ui.drawers.close()">Create</li>
   </super-navigate>
   <li id="tags">Tags:</li>
-  <!-- <super-navigate location="idea#index"> -->
   <li class="item" ng-repeat="tag in tagList" ng-click="changeTag(tag)">{{tag}}</li>
-  <!-- </super-navigate> -->
 </ul>

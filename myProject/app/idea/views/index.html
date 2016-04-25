@@ -7,9 +7,6 @@
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
-    <!-- <button type="button" name="button" ng-click="test()">Click Me</button> -->
-    <!-- <input type="text" ng-model="texty"> -->
-    <!-- <br>Input is : <strong>{{texty}}</strong> -->
     <ul class="list">
       <div ng-repeat="idea in ideas | orderBy:'-date' track by $index" ng-show="showings[$index]">
           <div class="list card feed">
@@ -24,14 +21,12 @@
                     <div class="col-sm-10">
                       <p class="user_name">{{idea.title}}</p>
                       <p class="time">
-                        <!-- {{date | date:'short'}} -->
                         {{idea.date}}
                       </p>
                     </div>
-                  </div> <!-- .user-info .row  -->
                   </div>
+                </div>
                    <p id="idea_title">{{idea.desc}}</p>
-
                 </div>
               </super-navigate>
 
@@ -53,7 +48,6 @@
                  </span>
                 </div>
               </div>
-
           </div>
       </div>
     </ul>
@@ -61,7 +55,5 @@
     <h4 ng-show="ideas.length == 0" class="assertive padding">
       No ideas found. Create one?
     </h4>
-
-
   </div>
 </div>

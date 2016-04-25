@@ -2,8 +2,7 @@ angular
   .module('idea')
   .controller("drawerController", function (taggy, $timeout, $rootScope, $scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
     "use strict";
-    // console.log(test);
-    $scope.taggy=taggy;
+    $scope.taggy=taggy.tag;
     supersonic.bind($scope, "taggy");
     $scope.showSpinner = true;
 
@@ -12,7 +11,7 @@ angular
       supersonic.ui.drawers.close();
     };
 
-    var ref = new Firebase('https://crowdstormdb.firebaseio.com/');
+    var ref = new Firebase(db_url);
     var tagArr = new $firebaseArray(ref.child("tags"));
     $scope.tagList = [];
     tagArr.$loaded().then(function(tags) {
