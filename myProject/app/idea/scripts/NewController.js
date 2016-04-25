@@ -85,4 +85,7 @@ angular
     //     $scope.tagValue =true;
     // };
     
+    $scope.remove_tag = function(item) {
+      $scope.selectedTags.splice($scope.selectedTags.indexOf(item), 1);
+    }
   });

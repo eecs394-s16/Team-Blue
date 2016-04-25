@@ -63,7 +63,7 @@ margin-right: 0;
 .selectedTags{
 	background-color: #4e2a84;
 	opacity:0.8;
-	padding:4px;
+	padding:4px 0 4px 4px;
 	color: white;
 	margin-right:4px;
 }
@@ -74,5 +74,10 @@ margin-right: 0;
 	border-radius: 0;
 }
 
-
+.remove_btn{
+	background-color: #260984;
+	z-index: 2;
+	padding: 3px; 
+	line-height: 0px;
+}
 
