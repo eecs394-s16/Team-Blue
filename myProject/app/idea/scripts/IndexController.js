@@ -5,10 +5,13 @@ angular
   })
   .controller("IndexController", function (taggy, $timeout, $rootScope, $scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
     "use strict";
+    $scope.viewTitle = "CrowdStorm";
     $scope.showSpinner = true;
     $scope.showings = [];
     $scope.taggy=taggy.tag;
     supersonic.bind($scope, "taggy");
+
+    
 
     $scope.ideas = [];
     var ref = new Firebase(db_url);
@@ -32,6 +35,7 @@ angular
     function filter(tag) {
       console.log('Filtering on tag:', tag);
       if (tag=="NONE") {
+        $scope.viewTitle = "CrowdStorm";
         for (var i=0; i<$scope.showings.length; i++) {
           $scope.showings[i]=true;
         }
@@ -44,9 +48,14 @@ angular
           else {
             $scope.showings[index] = false;
           }
+
         });
         // console.log($scope.showings);
       }
+      if($scope.taggy != '' && $scope.taggy != "NONE" ){
+      $scope.viewTitle =tag;
+      console.log(tag);
+    }
     };
     $scope.$watch(function(scope) {return scope.taggy}, function(newTag) {
       filter(newTag);
