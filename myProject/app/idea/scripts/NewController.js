@@ -29,8 +29,6 @@ angular
     class Idea {
       constructor(title, desc, author, currentdate, tags) {
         this.tags = tags;
-
-
         this.title = title;
         this.desc = desc;
         this.author = author;
@@ -54,22 +52,24 @@ angular
         this.date = date;
       }
     }
-//This part of data should be retrieved from database
+//All the tags goes to departments
      $scope.departments = [
      "Tag a Category",
       "ASG",
       "EECS",
       "Econ"
     ];
-
+    //taggedDept is for showing the selection of dropdown list
     $scope.taggedDept = $scope.departments[0];
+    //selectedTags is an array contains the tags user selected
     $scope.selectedTags = [];
-    
+
     
     
     $scope.addTag = function(taggedDept){
       if($scope.departments.indexOf(taggedDept) != 0 
         && jQuery.inArray(taggedDept, $scope.selectedTags) == -1 ){
+        //to ensure don't add duplicate tags
            $scope.selectedTags.push(taggedDept);
            console.log(taggedDept);
            console.log($scope.selectedTags);

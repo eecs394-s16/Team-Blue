@@ -73,3 +73,8 @@
 .list:first-child.card{
 	margin-top: 10px;
 }
+
+/*tags*/
+.show_tags{
+	margin-bottom: 4px;
+}
