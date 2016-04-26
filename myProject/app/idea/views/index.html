@@ -8,7 +8,7 @@
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
     <ul class="list">
-      <div ng-repeat="idea in ideas | orderBy:'-date' track by $index" ng-show="showings[$index]">
+      <div ng-repeat="idea in ideas | orderBy:'-date' track by $index" ng-show="idea.show">
           <div class="list card feed">
             <div class="item item-avatar feed_1">
               <super-navigate data-params-id="{{idea.$id}}" location="idea#show">
@@ -28,7 +28,7 @@
                 </div>
                    <p id="idea_title">{{idea.desc}}</p>
                    <div class="home_tags"> <span class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span></div>
-                
+
               </super-navigate>
               </div>
 
@@ -51,11 +51,6 @@
                 </div>
               </div>
           </div>
-      </div>
-    </ul>
-
-    <h4 ng-show="ideas.length == 0" class="assertive padding">
-      No ideas found. Create one?
-    </h4>
-  </div>
+        </ul>
+    </div>
 </div>

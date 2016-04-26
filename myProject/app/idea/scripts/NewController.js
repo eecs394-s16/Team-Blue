@@ -1,6 +1,6 @@
 angular
   .module('idea')
-  .controller("NewController", function ($scope, supersonic, db_url, $firebaseArray) {
+  .controller("NewController", function (taggy, $scope, supersonic, db_url, $firebaseArray) {
     "use strict";
     $scope.idea = {};
     $scope.showSpinner = false;
@@ -8,9 +8,11 @@ angular
     "Tag a Category"
     ];
 
+    $scope.taggy=taggy.tag;
+    supersonic.bind($scope, "taggy");
+
     //taggedDept is for showing the selection of dropdown list
     $scope.taggedDept = $scope.departments[0];
-
 
     var ref = new Firebase(db_url);
     var tagArr = new $firebaseArray(ref.child("tags"));
@@ -22,13 +24,11 @@ angular
     });
 
     $scope.submitForm = function () {
-      $scope.showSpinner = true;
       var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), $scope.selectedTags);
-
       var ref = new Firebase(db_url);
       ref.child("ideas").push(newidea);
-      $scope.showSpinner = false;
       supersonic.ui.layers.pop();
+      $scope.taggy = "NONE";
     };
 
     class Idea {
@@ -60,9 +60,9 @@ angular
 
     //selectedTags is an array contains the tags user selected
     $scope.selectedTags = [];
-    
+
     $scope.addTag = function(taggedDept){
-      if($scope.departments.indexOf(taggedDept) != 0 
+      if($scope.departments.indexOf(taggedDept) != 0
         && jQuery.inArray(taggedDept, $scope.selectedTags) == -1 ){
         //to ensure don't add duplicate tags
            $scope.selectedTags.push(taggedDept);
@@ -70,7 +70,7 @@ angular
            console.log($scope.selectedTags);
       }
     };
-    
+
     $scope.remove_tag = function(item) {
       $scope.selectedTags.splice($scope.selectedTags.indexOf(item), 1);
     }

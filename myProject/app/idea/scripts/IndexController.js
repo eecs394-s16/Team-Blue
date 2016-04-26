@@ -7,28 +7,21 @@ angular
     "use strict";
     $scope.viewTitle = "CrowdStorm";
     $scope.showSpinner = true;
-    $scope.showings = [];
+
     $scope.taggy=taggy.tag;
     supersonic.bind($scope, "taggy");
 
-    
-
-    $scope.ideas = [];
     var ref = new Firebase(db_url);
     $scope.ideas = new $firebaseArray(ref.child("ideas"));
 
-    $scope.upvoteVotings = [];
-    $scope.downvoteVotings = [];
-    for (var i = 0; i++; i<$scope.ideas.length) {
-      $scope.upvoteVotings.push(false);
-      $scope.downvoteVotings.push(false);
-    };
-
     $scope.ideas.$loaded().then(function() {
+      $scope.upvoteVotings = [];
+      $scope.downvoteVotings = [];
+      for (var i = 0; i++; i<$scope.ideas.length) {
+        $scope.upvoteVotings.push(false);
+        $scope.downvoteVotings.push(false);
+      };
       $scope.showSpinner = false;
-      for (var i=0; i<$scope.ideas.length; i++) {
-        $scope.showings.push(true);
-      }
     });
 
 
@@ -36,30 +29,32 @@ angular
       console.log('Filtering on tag:', tag);
       if (tag=="NONE") {
         $scope.viewTitle = "CrowdStorm";
-        for (var i=0; i<$scope.showings.length; i++) {
-          $scope.showings[i]=true;
-        }
+        $scope.ideas.forEach(function(idea) {
+          idea.show=true;
+        });
       }
       else {
+        $scope.viewTitle = tag;
         $scope.ideas.forEach(function (idea,index) {
           if ((idea.tags!=null) && (idea.tags.indexOf(tag)>-1)) {
-              $scope.showings[index] = true;
+            idea.show= true;
           }
           else {
-            $scope.showings[index] = false;
+            idea.show = false;
           }
-
         });
-        // console.log($scope.showings);
       }
-      if($scope.taggy != '' && $scope.taggy != "NONE" ){
-      $scope.viewTitle =tag;
-      console.log(tag);
     }
-    };
+
     $scope.$watch(function(scope) {return scope.taggy}, function(newTag) {
       filter(newTag);
     });
+
+    $scope.ideas.$watch(function() {
+      console.log("detected change in ideas array");
+      filter("NONE");
+    });
+
 
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
@@ -91,6 +86,10 @@ angular
     };
 
     $scope.newIdea = function() {
+      $scope.taggy = "NONE";
+      for (var i=0; i<$scope.showings.length; i++) {
+        $scope.showings[i]=true;
+      }
   		var view = new supersonic.ui.View("idea#new");
   		supersonic.ui.layers.push(view);
     };

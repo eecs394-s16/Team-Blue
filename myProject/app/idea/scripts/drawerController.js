@@ -2,9 +2,9 @@ angular
   .module('idea')
   .controller("drawerController", function (taggy, $timeout, $rootScope, $scope, supersonic, db_url, $firebaseObject, $firebaseArray) {
     "use strict";
+    $scope.showSpinner = true;
     $scope.taggy=taggy.tag;
     supersonic.bind($scope, "taggy");
-    $scope.showSpinner = true;
 
     $scope.changeTag = function(tag) {
       $scope.taggy=tag;
@@ -26,6 +26,5 @@ angular
       $scope.taggy="NONE";
       supersonic.ui.drawers.close();
     };
-
 
 });
