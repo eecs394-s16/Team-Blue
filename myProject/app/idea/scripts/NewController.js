@@ -4,14 +4,20 @@ angular
     "use strict";
     $scope.idea = {};
     $scope.showSpinner = false;
+    $scope.departments = [
+    "Tag a Category"
+    ];
+
+    //taggedDept is for showing the selection of dropdown list
+    $scope.taggedDept = $scope.departments[0];
+
 
     var ref = new Firebase(db_url);
     var tagArr = new $firebaseArray(ref.child("tags"));
-    $scope.tagList = [];
     tagArr.$loaded().then(function(tags) {
       tags.forEach(function(tag) {
         console.log(tag.$value);
-        $scope.tagList.push(tag.$value);
+        $scope.departments.push(tag.$value);
       });
     });
 
@@ -24,7 +30,6 @@ angular
       $scope.showSpinner = false;
       supersonic.ui.layers.pop();
     };
-
 
     class Idea {
       constructor(title, desc, author, currentdate, tags) {
@@ -52,19 +57,9 @@ angular
         this.date = date;
       }
     }
-//All the tags goes to departments
-     $scope.departments = [
-     "Tag a Category",
-      "ASG",
-      "EECS",
-      "Econ"
-    ];
-    //taggedDept is for showing the selection of dropdown list
-    $scope.taggedDept = $scope.departments[0];
+
     //selectedTags is an array contains the tags user selected
     $scope.selectedTags = [];
-
-    
     
     $scope.addTag = function(taggedDept){
       if($scope.departments.indexOf(taggedDept) != 0 
@@ -75,15 +70,6 @@ angular
            console.log($scope.selectedTags);
       }
     };
-    // $scope.tagValue = true;
-    // if($scope.selectedTags.length != 0){
-    //     $scope.tagValue = false;
-    //     console.log($scope.tagValue);
-    //     console.log($scope.selectedTags.length);
-
-    // }else{
-    //     $scope.tagValue =true;
-    // };
     
     $scope.remove_tag = function(item) {
       $scope.selectedTags.splice($scope.selectedTags.indexOf(item), 1);
