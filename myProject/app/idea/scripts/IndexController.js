@@ -86,10 +86,6 @@ angular
     };
 
     $scope.newIdea = function() {
-      $scope.taggy = "NONE";
-      for (var i=0; i<$scope.showings.length; i++) {
-        $scope.showings[i]=true;
-      }
   		var view = new supersonic.ui.View("idea#new");
   		supersonic.ui.layers.push(view);
     };
