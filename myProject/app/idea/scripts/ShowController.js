@@ -67,18 +67,14 @@ angular
         cmt.upvotes += 1;
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
-          if(cmt.downvotes >= 0){
-            cmt.downvotes -=1;
-           }
+          cmt.downvotes = Math.max(cmt.downvotes -=1,0); 
           }
           
         $scope.upvoteVotings[index] = true;
         $scope.comments.$save(cmt);
       }else{
           var cmt = $scope.comments.$getRecord(id);
-          if(cmt.upvotes >= 0){
-            cmt.upvotes -=1;
-           }
+          cmt.upvotes = Math.max(cmt.upvotes -=1,0);
           $scope.upvoteVotings[index] = false;
           $scope.comments.$save(cmt);
       }
@@ -91,13 +87,13 @@ angular
         cmt.downvotes +=1;
         if ($scope.upvoteVotings[index]) {
           $scope.upvoteVotings[index] = false;
-          cmt.upvotes -=1;
+          cmt.upvotes=Math.max(cmt.upvotes -=1, 0);
         }
         $scope.downvoteVotings[index] = true;
         $scope.comments.$save(cmt);
       }else{
           var cmt = $scope.comments.$getRecord(id);
-          cmt.downvotes -= 1;
+          cmt.downvotes = Math.max(cmt.downvotes -=1, 0);
           $scope.downvoteVotings[index] = false;
           $scope.comments.$save(cmt);
       }

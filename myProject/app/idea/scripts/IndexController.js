@@ -65,14 +65,14 @@ angular
         record.upvotes += 1;
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
-          record.downvotes -=1;
+          record.downvotes = Math.max(record.downvotes -=1,0);
         }
         $scope.upvoteVotings[index]=true;
          record = $scope.id
         $scope.ideas.$save(record);
       }else{
           var record = $scope.ideas.$getRecord(id);
-          record.upvotes -= 1;
+          record.upvotes = Math.max(record.upvotes -= 1,0);
           $scope.upvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }
@@ -86,17 +86,13 @@ angular
         record.downvotes += 1;
         if ($scope.upvoteVotings[index]) {
           $scope.upvoteVotings[index] = false;
-          if(record.upvotes >= 0){
-            record.upvotes -=1;
-          }
+          record.upvotes = Math.max(record.upvotes -=1, 0);
         }
         $scope.downvoteVotings[index]=true;
         $scope.ideas.$save(record);
       }else{
           var record = $scope.ideas.$getRecord(id);
-          if(record.downvotes >= 0){
-            record.downvotes -= 1;
-          }
+          record.downvotes = Math.max(record.downvotes -= 1, 0);
           $scope.downvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }
