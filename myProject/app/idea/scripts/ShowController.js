@@ -8,10 +8,17 @@ angular
     $scope.comments = [];
     $scope.ideaRef = null;
     $scope.commentRef = null;
-
+    $scope.postClass = "button-clear";
     $scope.upvoteVotings = [];
     $scope.downvoteVotings = [];
-    
+
+    $scope.posting = function() {
+      $scope.postClass = "postClass";
+    }
+
+    $scope.donePosting = function() {
+      $scope.postClass = "button-clear";
+    }
 
     var _refreshViewData = function () {
       $scope.ideaRef = new Firebase(db_url + 'ideas/' + $scope.dataId.toString());
@@ -54,6 +61,7 @@ angular
     }
 
     $scope.addComment = function() {
+      $scope.donePosting();
       var texty = (document.getElementById('comment_input').value).toString();
       var newComment = new Comment1(texty);
 
@@ -67,9 +75,9 @@ angular
         cmt.upvotes += 1;
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
-          cmt.downvotes = Math.max(cmt.downvotes -=1,0); 
+          cmt.downvotes = Math.max(cmt.downvotes -=1,0);
           }
-          
+
         $scope.upvoteVotings[index] = true;
         $scope.comments.$save(cmt);
       }else{

@@ -11,11 +11,11 @@ textarea{
 	font-family: "Times New Roman", Times, serif !important;
 	font-style: normal;
 }
-#add-new-idea-dscrp{
-	height: 250px;
-}
 #add-new-idea-title{
-	height: 80px;
+	height: 50px;
+}
+#add-new-idea-dscrp{
+	height: 200px;
 }
 #user_img_new{
 	width: 40px;
@@ -77,7 +77,6 @@ margin-right: 0;
 .remove_btn{
 	background-color: #260984;
 	z-index: 2;
-	padding: 3px; 
+	padding: 3px;
 	line-height: 0px;
 }
-

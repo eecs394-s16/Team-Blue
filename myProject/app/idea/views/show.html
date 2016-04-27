@@ -9,7 +9,7 @@
     <div class="idea_detail">
       <div class="container">
         <h2 class="idea_title" ng-bind="idea['title']" id ="idea_detail_title"></h2>
-        <div class="show_tags"> 
+        <div class="show_tags">
           <span class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span>
         </div>
         <p class="idea_desc">{{idea.desc}}</p>
@@ -21,24 +21,24 @@
     <div class="comment_input_container">
       <form name="cmtForm" ng-submit="clearForm()">
         <div class="row">
-          <textarea type="text" name = "comment_input" id="comment_input" ng-model="comment_input" placeholder="Write a comment..."></textarea>
-          <button id="submit" ng-click="addComment();" class = "button button-clear" type="submit">Post</button>
+          <textarea ng-focus="posting()" type="text" name = "comment_input" id="comment_input" ng-model="comment_input" placeholder="Write a comment..."></textarea>
+          <button ng-class="postClass" id="submit" ng-click="addComment();" class="button" type="submit">Post</button>
         </div>
       </form>
-    </div> 
+    </div>
 
   <div class="comments">
     <ul class="list" ng-hide="ideas.length==0">
       <div class="comment" ng-repeat="comment in comments track by $index">
         <div class="row">
           <div class="comment_user_img">
-            <img id="user_img"src="https://bholanauthj.files.wordpress.com/2015/06/business-intelligence-icon.png">
+            <img id="user_img" src="http://www.tlu.ee/~kpata/prolearn/icons/comment.png">
           </div>
           <div class="comment_row">
             <h3 class="comment_userName">April Smith</h3>
-            <p class="comment_content" ng-bind="comments[$index].content"></p> 
-          </div>   
-            
+            <p class="comment_content" ng-bind="comments[$index].content"></p>
+          </div>
+
        </div>
 
        <span class="votes">
@@ -50,7 +50,7 @@
 	       		<i class="icon super-chevron-down"></i>
 	       	</a>
 	       	<span id = "downvotes">{{comment.downvotes}}</span>
-	       </span>  
+	       </span>
 
       </div>
     </ul>

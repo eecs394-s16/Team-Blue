@@ -25,7 +25,7 @@ a:active{
 	max-height:40px;
 }
 .user_name, .time{
-	padding-right: 2%;	
+	padding-right: 2%;
 }
 .user_name{
 	color: #3b5998 !important;
@@ -62,7 +62,7 @@ a:active{
 	width: 17%;
 }
 .col-sm-10{
-	width: 100%; 
+	width: 100%;
 }
 .col-sm-4{
 	padding-left: 0;
@@ -85,18 +85,24 @@ background-color: #f5f5f5 ;
 /*tags*/
 .home_tags{
 	margin-left: 10px;
+	margin-bottom: 10px;
 }
 .idea_tag{
 	background-color: #4e2a84;
 	color: white;
 	opacity:0.7;
-	padding: 2px;
+	padding: 8px;
 	margin-right:4px;
 	font-size: 11px;
-
+	border-radius: 5px;
 }
 
 /*.comment is the row of "likes, comment, join"*/
 .upload_pic{
 	padding-left: 0;
+}
+
+.contribute {
+	font-style: bold;
+	color: #4e2a84;
 }

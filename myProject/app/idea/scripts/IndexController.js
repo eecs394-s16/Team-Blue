@@ -7,14 +7,29 @@ angular
     "use strict";
     $scope.viewTitle = "CrowdStorm";
     $scope.showSpinner = true;
+    var loaded = false;
 
     $scope.taggy=taggy.tag;
     supersonic.bind($scope, "taggy");
 
+
+    //NEW CODE
+    // var ref = new Firebase(db_url);
+    // var tagRef = ref.child("tags");
+    // tagRef.push('Campus');
+    // tagRef.push('Dining');
+    // tagRef.push('CAPS');
+    // tagRef.push('Libraries');
+    // tagRef.push('Norris');
+    // tagRef.push('EECS');
+
+    //END NEW CODE
     var ref = new Firebase(db_url);
     $scope.ideas = new $firebaseArray(ref.child("ideas"));
 
     $scope.ideas.$loaded().then(function() {
+      filter("NONE");
+      loaded = true;
       $scope.upvoteVotings = [];
       $scope.downvoteVotings = [];
       for (var i = 0; i++; i<$scope.ideas.length) {
@@ -23,7 +38,6 @@ angular
       };
       $scope.showSpinner = false;
     });
-
 
     function filter(tag) {
       console.log('Filtering on tag:', tag);
@@ -50,9 +64,11 @@ angular
       filter(newTag);
     });
 
-    $scope.ideas.$watch(function() {
-      console.log("detected change in ideas array");
-      filter("NONE");
+    $scope.ideas.$watch(function(event) {
+      if (loaded) {
+        console.log("detected change in ideas array");
+        filter("NONE");
+      }
     });
 
 

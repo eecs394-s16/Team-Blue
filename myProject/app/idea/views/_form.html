@@ -17,17 +17,17 @@
   <br>
 
   <div class="tag">
-    <select class = "dropdown_tags"ng-model="taggedDept">
+    <select class="dropdown_tags" ng-model="taggedDept" ng-change="addTag(taggedDept)">
     <option ng-repeat="x in departments" value="{{x}}">{{x}}</option>
     </select>
-    <button id = "plus_btn" class="button  button-royal" type="button"  ng-click="addTag(taggedDept)">+</button>
-    
+    <!-- <button id = "plus_btn" class="button  button-royal" type="button"  ng-click="addTag(taggedDept)">+</button> -->
+
     <div class="showTags">
       <span class = "selectedTags" ng-repeat="x in selectedTags track by $index" value = "{{x}}" >{{x}} <span class="remove_btn" type="button" ng-click="remove_tag(x)">&#x274C;</span>
       </span>
     </div>
   </div>
 
-  <button class="save_btn button button-block">Post</button>
+  <button class="save_btn button button-block">CrowdStorm your idea!</button>
 
 </div>

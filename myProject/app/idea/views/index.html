@@ -38,16 +38,14 @@
                       <i class="icon super-chevron-up"></i>
                     </a>
                     <span id = "upvotes">{{idea.upvotes}}</span>
-                    <a href="#" ng-click="downvote(idea.$id)" class="subdued downvote " ng-style="upvoted">
-                      <i class="icon super-chevron-down"></i>
-                    </a>
-                    <span id = "downvotes">{{idea.downvotes}}</span>
-                  </span>
-                  <span class="comment_container">
-                    <a href="#" ng-click="comment(idea.id)" class="subdued col-sm-3 "> {{idea.comments}} </a>
-                    <i class="icon super-chatbox"ng-style="downvoted"></i>
-                   <span>Comment</span>
-                 </span>
+                      <a href="#" ng-click="downvote(idea.$id)" class="subdued downvote " ng-style="upvoted">
+                        <i class="icon super-chevron-down"></i>
+                      </a>
+                      <span id = "downvotes">{{idea.downvotes}}</span>
+                    </span>
+                    <super-navigate data-params-id="{{idea.$id}}" location="idea#show">
+                      <span class="contribute"><img style="height:14px;width:auto; margin-right:5px; vertical-align:text-top;"src="http://www.tlu.ee/~kpata/prolearn/icons/comment.png" alt=""/><b>Join the Storm</b></span>
+                    </super-navigate>
                 </div>
               </div>
           </div>
