@@ -86,13 +86,17 @@ angular
         record.downvotes += 1;
         if ($scope.upvoteVotings[index]) {
           $scope.upvoteVotings[index] = false;
-          record.upvotes -=1;
+          if(record.upvotes >= 0){
+            record.upvotes -=1;
+          }
         }
         $scope.downvoteVotings[index]=true;
         $scope.ideas.$save(record);
       }else{
           var record = $scope.ideas.$getRecord(id);
-          record.downvotes -= 1;
+          if(record.downvotes >= 0){
+            record.downvotes -= 1;
+          }
           $scope.downvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }

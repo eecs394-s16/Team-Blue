@@ -67,13 +67,18 @@ angular
         cmt.upvotes += 1;
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
-          cmt.downvotes -=1;
-        }
+          if(cmt.downvotes >= 0){
+            cmt.downvotes -=1;
+           }
+          }
+          
         $scope.upvoteVotings[index] = true;
         $scope.comments.$save(cmt);
       }else{
           var cmt = $scope.comments.$getRecord(id);
-          cmt.upvotes -= 1;
+          if(cmt.upvotes >= 0){
+            cmt.upvotes -=1;
+           }
           $scope.upvoteVotings[index] = false;
           $scope.comments.$save(cmt);
       }
