@@ -21,8 +21,9 @@
     <div class="comment_input_container">
       <form name="cmtForm" ng-submit="clearForm()">
         <div class="row">
+          <span class="required" id="cmt" ng-show="cmtMissing">*Required</span>
           <textarea ng-focus="posting()" type="text" name = "comment_input" id="comment_input" ng-model="comment_input" placeholder="Write a comment..."></textarea>
-          <button ng-class="postClass" id="submit" ng-click="addComment();" class="button" type="submit">Post</button>
+          <button ng-class="postClass" id="submit" ng-click="addComment();" class="button" type="submit" required>Post</button>
         </div>
       </form>
     </div>

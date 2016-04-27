@@ -37,7 +37,7 @@ a:active{
 
 }
 .vote{
-	width: 60%;
+	width: 50%;
 	padding-left: 4%;
 }
 .upvote{
@@ -48,7 +48,7 @@ a:active{
 .downvote{
 	width: 25%;
 	float: center;
-	padding-left: 18%;
+	padding-left: 25%;
 }
 #upvotes{
 	width: 25%;
@@ -94,7 +94,6 @@ background-color: #f5f5f5 ;
 	padding: 8px;
 	margin-right:4px;
 	font-size: 11px;
-	border-radius: 5px;
 }
 
 /*.comment is the row of "likes, comment, join"*/
