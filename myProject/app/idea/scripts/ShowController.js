@@ -73,16 +73,25 @@ angular
       if (!$scope.upvoteVotings[index]) {
         var cmt = $scope.comments.$getRecord(id);
         cmt.upvotes += 1;
+        $scope.upvoted = {
+            "color" : "mediumblue"
+          }
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
           cmt.downvotes = Math.max(cmt.downvotes -=1,0);
           }
-
+          $scope.downvoted = {
+             "color" : "balck"
+          }
         $scope.upvoteVotings[index] = true;
         $scope.comments.$save(cmt);
       }else{
           var cmt = $scope.comments.$getRecord(id);
           cmt.upvotes = Math.max(cmt.upvotes -=1,0);
+          $scope.upvoted = {
+            "color" : "balck"
+          }
+
           $scope.upvoteVotings[index] = false;
           $scope.comments.$save(cmt);
       }
@@ -93,15 +102,24 @@ angular
       if (!$scope.downvoteVotings[index]) {
         var cmt = $scope.comments.$getRecord(id);
         cmt.downvotes +=1;
+        $scope.downvoted = {
+          "color" : "brown"
+        }
         if ($scope.upvoteVotings[index]) {
           $scope.upvoteVotings[index] = false;
           cmt.upvotes=Math.max(cmt.upvotes -=1, 0);
+          $scope.upvoted = {
+            "color" : "balck"
+          }
         }
         $scope.downvoteVotings[index] = true;
         $scope.comments.$save(cmt);
       }else{
           var cmt = $scope.comments.$getRecord(id);
           cmt.downvotes = Math.max(cmt.downvotes -=1, 0);
+          $scope.downvoted = {
+             "color" : "balck"
+          }
           $scope.downvoteVotings[index] = false;
           $scope.comments.$save(cmt);
       }

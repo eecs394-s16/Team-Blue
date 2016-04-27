@@ -42,16 +42,16 @@
        </div>
 
        <span class="votes">
-	       	<a href="#" ng-click="upvote(comment.$id)" class="subdued upvote" ng-style="upvoted">
+	       	<a href="#" ng-click="upvote(comment.$id)" class="subdued upvote">
 	       		<i class="icon super-chevron-up"></i>
 	       	</a>
-	       	<span id = "upvotes">{{comment.upvotes}}</span>
-	       	<a href="#" ng-click="downvote(comment.$id)" class="subdued downvote" ng-style="downvoted">
+	       	<span id = "upvotes"  ng-style="upvoted">{{comment.upvotes}}</span>
+
+	       	<a href="#" ng-click="downvote(comment.$id)" class="subdued downvote">
 	       		<i class="icon super-chevron-down"></i>
 	       	</a>
-	       	<span id = "downvotes">{{comment.downvotes}}</span>
-	       </span>
-
+	       	<span id = "downvotes" ng-style="downvoted">{{comment.downvotes}}</span>
+	     </span>  
       </div>
     </ul>
   </div>

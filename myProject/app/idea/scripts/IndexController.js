@@ -79,9 +79,15 @@ angular
       if (!$scope.upvoteVotings[index]) {
         var record = $scope.ideas.$getRecord(id);
         record.upvotes += 1;
+        $scope.upvoted = {
+            "color" : "mediumblue"
+          }
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
           record.downvotes = Math.max(record.downvotes -=1,0);
+          $scope.downvoted = {
+             "color" : "balck"
+          }
         }
         $scope.upvoteVotings[index]=true;
          record = $scope.id
@@ -89,6 +95,9 @@ angular
       }else{
           var record = $scope.ideas.$getRecord(id);
           record.upvotes = Math.max(record.upvotes -= 1,0);
+          $scope.upvoted = {
+            "color" : "balck"
+          }
           $scope.upvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }
@@ -100,15 +109,24 @@ angular
       if (!$scope.downvoteVotings[index]) {
         var record = $scope.ideas.$getRecord(id);
         record.downvotes += 1;
+        $scope.downvoted = {
+          "color" : "brown"
+        }
         if ($scope.upvoteVotings[index]) {
           $scope.upvoteVotings[index] = false;
           record.upvotes = Math.max(record.upvotes -=1, 0);
+          $scope.upvoted = {
+            "color" : "balck"
+          }
         }
         $scope.downvoteVotings[index]=true;
         $scope.ideas.$save(record);
       }else{
           var record = $scope.ideas.$getRecord(id);
           record.downvotes = Math.max(record.downvotes -= 1, 0);
+          $scope.downvoted = {
+             "color" : "balck"
+          }
           $scope.downvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }
@@ -121,4 +139,8 @@ angular
   		supersonic.ui.layers.push(view);
     };
 
+
 });
+
+
+
