@@ -59,6 +59,7 @@ angular
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
       console.log(index);
+
       if (!$scope.upvoteVotings[index]) {
         var record = $scope.ideas.$getRecord(id);
         record.upvotes += 1;
@@ -67,8 +68,15 @@ angular
           record.downvotes -=1;
         }
         $scope.upvoteVotings[index]=true;
+         record = $scope.id
         $scope.ideas.$save(record);
+      }else{
+          var record = $scope.ideas.$getRecord(id);
+          record.upvotes -= 1;
+          $scope.upvoteVotings[index] = false;
+          $scope.ideas.$save(record);
       }
+
     };
 
     $scope.downvote = function(id) {
@@ -82,7 +90,14 @@ angular
         }
         $scope.downvoteVotings[index]=true;
         $scope.ideas.$save(record);
+      }else{
+          var record = $scope.ideas.$getRecord(id);
+          record.downvotes -= 1;
+          $scope.downvoteVotings[index] = false;
+          $scope.ideas.$save(record);
       }
+
+
     };
 
     $scope.newIdea = function() {

@@ -71,6 +71,11 @@ angular
         }
         $scope.upvoteVotings[index] = true;
         $scope.comments.$save(cmt);
+      }else{
+          var cmt = $scope.comments.$getRecord(id);
+          cmt.upvotes -= 1;
+          $scope.upvoteVotings[index] = false;
+          $scope.comments.$save(cmt);
       }
     };
 
@@ -85,6 +90,11 @@ angular
         }
         $scope.downvoteVotings[index] = true;
         $scope.comments.$save(cmt);
+      }else{
+          var cmt = $scope.comments.$getRecord(id);
+          cmt.downvotes -= 1;
+          $scope.downvoteVotings[index] = false;
+          $scope.comments.$save(cmt);
       }
     };
 
