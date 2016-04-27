@@ -65,7 +65,8 @@ angular
     });
 
     $scope.ideas.$watch(function(event) {
-      if (loaded) {
+      console.log("event",event.event);
+      if (loaded && (event.event=="child_added" || event.event=="child_removed")) {
         console.log("detected change in ideas array");
         filter("NONE");
       }
@@ -141,6 +142,3 @@ angular
 
 
 });
-
-
-
