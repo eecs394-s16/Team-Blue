@@ -2,6 +2,8 @@ angular
   .module('idea')
   .controller("NewController", function (taggy, $scope, supersonic, db_url, $firebaseArray) {
     "use strict";
+    $scope.titleMissing = false;
+    $scope.descMissing = false;
     $scope.idea = {};
     $scope.showSpinner = false;
     $scope.departments = [
@@ -18,12 +20,21 @@ angular
     var tagArr = new $firebaseArray(ref.child("tags"));
     tagArr.$loaded().then(function(tags) {
       tags.forEach(function(tag) {
-        console.log(tag.$value);
+        // console.log(tag.$value);
         $scope.departments.push(tag.$value);
       });
     });
 
     $scope.submitForm = function () {
+      console.log('testing');
+      if ($scope.idea.title==null) {
+        $scope.titleMissing = true;
+      }
+      else $scope.titleMissing = false;
+      if ($scope.idea.desc==null) {
+        $scope.descMissing = true;
+      }
+      else $scope.descMissing = false;
       var newidea = new Idea($scope.idea.title,$scope.idea.desc, 'Rodrigo', new Date(), $scope.selectedTags);
       var ref = new Firebase(db_url);
       ref.child("ideas").push(newidea);

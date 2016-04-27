@@ -80,3 +80,11 @@ margin-right: 0;
 	padding: 3px;
 	line-height: 0px;
 }
+
+.required {
+	margin-left: 3.5px;
+	line-height: 2.3em;
+	color:red;
+	font-size: 0.6em;
+	vertical-align: text-bottom;
+}
