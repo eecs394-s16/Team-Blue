@@ -95,7 +95,7 @@ background-color: #f5f5f5 ;
 	margin-right:5px;
 	margin-top: 5px;
 	font-size: 11px;
-	border-radius: 5px;
+	border-radius: 0px;
 }
 
 /*.comment is the row of "likes, comment, join"*/
@@ -110,5 +110,15 @@ background-color: #f5f5f5 ;
 	font-style: bold;
 	color: #4e2a84;
 	float: right;
-	padding-left:35px;
+	padding-left:70px;
+}
+
+i.super-arrow-up-b, i.super-arrow-down-b {
+	font-size:20px;
+}
+i.super-chatboxes{
+	font-size:15px;
+	padding-right: 4px;
+	line-height: 1px;
+	color: black;
 }
