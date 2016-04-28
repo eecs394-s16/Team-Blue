@@ -100,5 +100,8 @@
 	font-size: 15px !important;
 	padding:0;
 	border: 1px solid #4e2a84;
-	
+}
+
+.vote_data{
+	width: 100%;
 }

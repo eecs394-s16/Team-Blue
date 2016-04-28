@@ -72,13 +72,13 @@ angular
       }
     });
 
-    $scope.downvoted = {
-             "color" : "balck"
-          }
-    $scope.UPvoted = {
-       "color" : "balck"
-    }
-    
+    // $scope.downvoted = {
+    //          "color" : "black"
+    //       }
+    // $scope.UPvoted = {
+    //    "color" : "black"
+    // }
+
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
       console.log(index);
@@ -86,15 +86,15 @@ angular
       if (!$scope.upvoteVotings[index]) {
         var record = $scope.ideas.$getRecord(id);
         record.upvotes += 1;
-        $scope.upvoted = {
-            "color" : "mediumblue"
-          }
+        // $scope.upvoted = {
+        //     "color" : "mediumblue"
+        //   }
         if ($scope.downvoteVotings[index]) {
           $scope.downvoteVotings[index] = false;
           record.downvotes = Math.max(record.downvotes -=1,0);
-          $scope.downvoted = {
-             "color" : "balck"
-          }
+          // $scope.downvoted = {
+          //    "color" : "black"
+          // }
         }
         $scope.upvoteVotings[index]=true;
          record = $scope.id
@@ -102,9 +102,9 @@ angular
       }else{
           var record = $scope.ideas.$getRecord(id);
           record.upvotes = Math.max(record.upvotes -= 1,0);
-          $scope.upvoted = {
-            "color" : "balck"
-          }
+          // $scope.upvoted = {
+          //   "color" : "black"
+          // }
           $scope.upvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }
@@ -116,24 +116,24 @@ angular
       if (!$scope.downvoteVotings[index]) {
         var record = $scope.ideas.$getRecord(id);
         record.downvotes += 1;
-        $scope.downvoted = {
-          "color" : "brown"
-        }
+        // $scope.downvoted = {
+        //   "color" : "brown"
+        // }
         if ($scope.upvoteVotings[index]) {
           $scope.upvoteVotings[index] = false;
           record.upvotes = Math.max(record.upvotes -=1, 0);
-          $scope.upvoted = {
-            "color" : "balck"
-          }
+          // $scope.upvoted = {
+          //   "color" : "black"
+          // }
         }
         $scope.downvoteVotings[index]=true;
         $scope.ideas.$save(record);
       }else{
           var record = $scope.ideas.$getRecord(id);
           record.downvotes = Math.max(record.downvotes -= 1, 0);
-          $scope.downvoted = {
-             "color" : "balck"
-          }
+          // $scope.downvoted = {
+          //    "color" : "black"
+          // }
           $scope.downvoteVotings[index] = false;
           $scope.ideas.$save(record);
       }

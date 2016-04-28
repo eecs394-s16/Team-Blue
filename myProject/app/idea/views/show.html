@@ -14,8 +14,9 @@
         </div>
         <p class="idea_desc">{{idea.desc}}</p>
 
+        
         <div class="like row">
-          <span class="vote">
+          <span class="vote_data">
             <a href="#" ng-click="upvoteIdea(idea.$id)" class="subdued upvote">
               <i class="icon super-arrow-up-b"></i>
             </a>
@@ -61,10 +62,11 @@
 	       		<i class="icon super-arrow-up-b"></i>
 	       	</a>
 	       	<span id = "upvotes"  ng-style="upvoted">{{comment.upvotes}}</span>
-
+          <a href="" class="show_downvotes">
 	       	<a href="#" ng-click="downvote(comment.$id)" class="subdued downvote">
 	       		<i class="icon super-arrow-down-b"></i>
 	       	</a>
+          </a>
 	       	<span id = "downvotes" ng-style="downvoted">{{comment.downvotes}}</span>
 	     </span>
       </div>
