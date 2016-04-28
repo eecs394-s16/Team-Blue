@@ -102,8 +102,13 @@ background-color: #f5f5f5 ;
 .upload_pic{
 	padding-left: 0;
 }
+.like{
+
+}
 
 .contribute {
 	font-style: bold;
 	color: #4e2a84;
+	float: right;
+	padding-left:35px;
 }

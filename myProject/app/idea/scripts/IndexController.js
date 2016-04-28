@@ -72,7 +72,12 @@ angular
       }
     });
 
-
+    $scope.downvoted = {
+             "color" : "balck"
+          }
+    $scope.UPvoted = {
+       "color" : "balck"
+    }
     $scope.upvote = function(id) {
       var index = $scope.ideas.$indexFor(id);
       console.log(index);

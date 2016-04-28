@@ -27,27 +27,24 @@
                   </div>
                 </div>
                    <p id="idea_title">{{idea.desc}}</p>
-                   <div class="home_tags">
-                     <span class="idea_tag" ng-repeat="tag in idea.tags|limitTo:5">{{tag}}</span>
-                     <span ng-show="idea.tags.length>5"id="extraTags" style="color:#4e2a84">...</span>
-                   </div>
+                   <div class="home_tags"> <span class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span></div>
 
               </super-navigate>
               </div>
 
-                <div class="comment row">
+                <div class="like row">
                   <span class="vote">
                     <a href="#" ng-click="upvote(idea.$id)" class="subdued upvote">
-                      <i class="icon super-chevron-up"></i>
+                      <i class="icon super-arrow-up-b"></i>
                     </a>
                     <span id = "upvotes" ng-style="upvoted">{{idea.upvotes}}</span>
                       <a href="#" ng-click="downvote(idea.$id)" class="subdued downvote">
-                        <i class="icon super-chevron-down"></i>
+                        <i class="icon super-arrow-down-b"></i>
                       </a>
                       <span id = "downvotes"  ng-style="downvoted">{{idea.downvotes}}</span>
                     </span>
                     <super-navigate data-params-id="{{idea.$id}}" location="idea#show">
-                      <span class="contribute"><img style="height:14px;width:auto; margin-right:5px; vertical-align:text-top;"src="http://www.tlu.ee/~kpata/prolearn/icons/comment.png" alt=""/><b>Join the Storm</b></span>
+                      <span class="contribute"><img style="height:20px;width:auto; margin-right:5px; vertical-align:text-top;"src="http://www.iconlogisticsnetwork.com/wp-content/themes/stockholm/images/join-us-icon.png" alt=""/><b>Join the Storm</b></span>
                     </super-navigate>
 
                 </div>
