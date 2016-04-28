@@ -138,4 +138,73 @@ angular
       $scope.comment_input = ''; // doesn't work
     };
 
+
+    $scope.downvoted = {
+             "color" : "balck"
+          }
+    $scope.UPvoted = {
+       "color" : "balck"
+    }
+
+
+    $scope.upvotedBool = false;
+    $scope.downvotedBool = false;
+    $scope.upvoteIdea = function(id) {
+      console.log(id);
+      $scope.upvotedIdea = {
+
+      }
+      if (!$scope.upvotedBool) {
+        $scope.idea.upvotes +=1;
+        $scope.upvotedIdea = {
+            "color" : "mediumblue"
+          }
+        $scope.upvotedBool = true;
+        if ($scope.downvotedBool) {
+          $scope.downvotedBool = false;
+          $scope.idea.downvotes-=1;
+        }
+      }
+      else{
+          $scope.upvotedIdea = {
+            "color" : "balck"
+          }
+          $scope.upvotedBool = false;
+          $scope.idea.upvotes -=1;
+      }
+      $scope.idea.$save();
+
+    };
+
+    $scope.downvoteIdea = function(id) {
+      console.log(id);
+      $scope.downvotedIdea = {
+
+      }
+      // var index = $scope.ideas.$indexFor(id);
+      // console.log(index);
+      //
+      if (!$scope.downvotedBool) {
+        $scope.idea.downvotes+=1;
+        $scope.downvotedIdea = {
+            "color" : "mediumblue"
+          }
+        $scope.downvotedBool = true;
+        if ($scope.upvotedBool) {
+          $scope.upvotedBool = false;
+          $scope.idea.upvotes-=1;
+        }
+      }
+      else {
+          console.log('hello');
+          $scope.downvotedIdea = {
+            "color" : "balck"
+          }
+          $scope.downvotedBool = false;
+          $scope.idea.downvotes-=1;
+      }
+      $scope.idea.$save();
+
+    };
+
   });

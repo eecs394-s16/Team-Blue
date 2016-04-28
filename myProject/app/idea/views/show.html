@@ -13,6 +13,20 @@
           <span style="display:inline-block" class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span>
         </div>
         <p class="idea_desc">{{idea.desc}}</p>
+
+        <div class="like row">
+          <span class="vote">
+            <a href="#" ng-click="upvoteIdea(idea.$id)" class="subdued upvote">
+              <i class="icon super-arrow-up-b"></i>
+            </a>
+            <span id = "upvotes" ng-style="upvotedIdea">{{idea.upvotes}}</span>
+
+            <a href="#" ng-click="downvoteIdea(idea.$id)" class="subdued downvote">
+              <i class="icon super-arrow-down-b"></i>
+            </a>
+            <span id = "downvotes"  ng-style="downvotedIdea">{{idea.downvotes}}</span>
+            </span>
+        </div>
       </div>
     </div>
 
