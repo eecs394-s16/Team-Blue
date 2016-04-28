@@ -27,7 +27,10 @@
                   </div>
                 </div>
                    <p id="idea_title">{{idea.desc}}</p>
-                   <div class="home_tags"> <span class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span></div>
+                   <div class="home_tags">
+                     <span class="idea_tag" ng-repeat="tag in idea.tags|limitTo:5">{{tag}}</span>
+                     <span ng-show="idea.tags.length>5"id="extraTags" style="color:#4e2a84">...</span>
+                   </div>
 
               </super-navigate>
               </div>

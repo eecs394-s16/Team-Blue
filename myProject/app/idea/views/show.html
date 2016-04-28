@@ -10,7 +10,7 @@
       <div class="container">
         <h2 class="idea_title" ng-bind="idea['title']" id ="idea_detail_title"></h2>
         <div class="show_tags">
-          <span class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span>
+          <span style="display:inline-block" class="idea_tag" ng-repeat="tag in idea.tags">{{tag}}</span>
         </div>
         <p class="idea_desc">{{idea.desc}}</p>
       </div>
@@ -52,7 +52,7 @@
 	       		<i class="icon super-chevron-down"></i>
 	       	</a>
 	       	<span id = "downvotes" ng-style="downvoted">{{comment.downvotes}}</span>
-	     </span>  
+	     </span>
       </div>
     </ul>
   </div>

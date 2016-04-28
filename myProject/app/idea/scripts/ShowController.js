@@ -11,7 +11,8 @@ angular
     $scope.postClass = "button-clear";
     $scope.upvoteVotings = [];
     $scope.downvoteVotings = [];
-
+    $scope.comment_input = null;
+    $scope.cmtMissing = false;
     $scope.posting = function() {
       $scope.postClass = "postClass";
     }
@@ -61,11 +62,15 @@ angular
     }
 
     $scope.addComment = function() {
-      $scope.donePosting();
-      var texty = (document.getElementById('comment_input').value).toString();
-      var newComment = new Comment1(texty);
 
-      $scope.commentRef.push(newComment);
+      console.log($scope.comment_input);
+      if ($scope.comment_input.toString()!="") {
+        $scope.donePosting();
+        // var texty = (document.getElementById('comment_input').value).toString();
+        var newComment = new Comment1($scope.comment_input);
+
+        $scope.commentRef.push(newComment);
+      }
     };
 
     $scope.upvote = function(id) {
